@@ -1,5 +1,7 @@
 ![Wireframe IDE](wireframe-branding/mixatheme-wireframe-logo-fill.gif)
 
+# Wireframe Suite
+
 [Wireframe](https://github.com/mixatheme/Wireframe) is a suite of object-oriented components for creating modular WordPress themes & plugins. Creators extend Wireframe to deliver professional client projects or for selling premium marketplace products to the world.
 
 [Components](https://github.com/mixatheme/Wireframe#components) | 
@@ -13,6 +15,8 @@ Wireframe suite consists of 3 major components: *Themes*, *Plugins* and *Objects
 
 Need help getting started? Head on over to the Quickstart guide.
 
+[Top](https://github.com/mixatheme/Wireframe#wireframe-suite)
+
 --
 
 ### Themes
@@ -22,6 +26,8 @@ Welcome Theme Developers! There's one thing that all WordPress sites have common
 * [Wireframe Theme](https://github.com/mixatheme/wp-wireframe-theme) An OOP boilerplate theme for using as a framework, parent theme, client project or premium marketplace products.
 * [Wireframe Child](https://github.com/mixatheme/wp-wireframe-child) The boilerplate child theme for Wireframe.
 
+[Top](https://github.com/mixatheme/Wireframe#wireframe-suite)
+
 --
 
 ### Plugins
@@ -29,6 +35,8 @@ Welcome Theme Developers! There's one thing that all WordPress sites have common
 Ah, so you want to develop WordPress plugins? Awesome! We love Plugin Developers because with your creativity, the sky's the limit--and plugins always add more value to any WordPress site. Wireframe provides you with a boilerplate plugin to help speed up development and lower your production costs.
 
 * [Wireframe Plugin](https://github.com/mixatheme/wp-wireframe-plugin) An OOP boilerplate plugin for building quality products.
+
+[Top](https://github.com/mixatheme/Wireframe#wireframe-suite)
 
 --
 
@@ -71,4 +79,4 @@ Wireframe objects consist of modular class files which help you rapidly develop 
 
 ---
 
-[Top](https://github.com/mixatheme/Wireframe)
+[Top](https://github.com/mixatheme/Wireframe#wireframe-suite)
