@@ -15,7 +15,6 @@ Wireframe suite consists of 3 major components: *Themes*, *Plugins* and *Objects
 
 Need help getting started? Head on over to the Quickstart guide.
 
-[Components](https://github.com/mixatheme/Wireframe#components) | 
 [Themes](https://github.com/mixatheme/Wireframe#themes) | [Plugins](https://github.com/mixatheme/Wireframe#plugins) | [Objects](https://github.com/mixatheme/Wireframe#objects) | [Top](https://github.com/mixatheme/Wireframe#wireframe-suite)
 
 --
@@ -28,7 +27,7 @@ Welcome Theme Developers! There's one thing that all WordPress sites have common
 * [Wireframe Child](https://github.com/mixatheme/wp-wireframe-child) The boilerplate child theme for Wireframe.
 
 [Components](https://github.com/mixatheme/Wireframe#components) | 
-[Themes](https://github.com/mixatheme/Wireframe#themes) | [Plugins](https://github.com/mixatheme/Wireframe#plugins) | [Objects](https://github.com/mixatheme/Wireframe#objects) | [Top](https://github.com/mixatheme/Wireframe#wireframe-suite)
+[Plugins](https://github.com/mixatheme/Wireframe#plugins) | [Objects](https://github.com/mixatheme/Wireframe#objects) | [Top](https://github.com/mixatheme/Wireframe#wireframe-suite)
 
 --
 
@@ -39,7 +38,7 @@ Ah, so you want to develop WordPress plugins? Awesome! We love Plugin Developers
 * [Wireframe Plugin](https://github.com/mixatheme/wp-wireframe-plugin) An OOP boilerplate plugin for building quality products.
 
 [Components](https://github.com/mixatheme/Wireframe#components) | 
-[Themes](https://github.com/mixatheme/Wireframe#themes) | [Plugins](https://github.com/mixatheme/Wireframe#plugins) | [Objects](https://github.com/mixatheme/Wireframe#objects) | [Top](https://github.com/mixatheme/Wireframe#wireframe-suite)
+[Themes](https://github.com/mixatheme/Wireframe#themes) | [Objects](https://github.com/mixatheme/Wireframe#objects) | [Top](https://github.com/mixatheme/Wireframe#wireframe-suite)
 
 --
 
