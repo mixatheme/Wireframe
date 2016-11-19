@@ -11,7 +11,7 @@
 
 ## Components
 
-Wireframe suite consists of 3 major components: *Themes*, *Plugins* and *Objects*. These components will help you work faster, better and inspires forward-thinking development using many industry standards.
+Wireframe suite consists of 3 major components: *Themes*, *Plugins* and *Objects*. These components are crafted to work seamlessly together and helps your productivity so you build better products.
 
 Need help getting started? Head on over to the Quickstart guide.
 
