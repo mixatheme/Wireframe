@@ -1,4 +1,4 @@
-![Wireframe IDE](wireframe-branding/mixatheme-wireframe-logo-fill.gif)
+![Wireframe logo](wireframe-branding/mixatheme-wireframe-logo-fill.gif)
 
 # Wireframe Suite
 
@@ -23,8 +23,8 @@ Need help getting started? Head on over to the Quickstart guide.
 
 Welcome Theme Developers! There's one thing that all WordPress sites have common: you need a theme to run a WordPress site. Wirerame helps you work better with a boilerplate starter theme you can use as a framework, or you can also scale the fully-functional child theme for streamlining theme production.
 
-* [Wireframe Theme](https://github.com/mixatheme/wp-wireframe-theme) An OOP boilerplate theme for using as a framework, parent theme, client project or premium marketplace products.
-* [Wireframe Child](https://github.com/mixatheme/wp-wireframe-child) The boilerplate child theme for Wireframe.
+* [Wireframe Theme](https://github.com/mixatheme/wireframe-theme) - An OOP boilerplate theme for using as a framework, parent theme, client project or premium marketplace product.
+* [Wireframe Child](https://github.com/mixatheme/wireframe-child) - The boilerplate child theme for Wireframe.
 
 [Components](https://github.com/mixatheme/Wireframe#components) | 
 [Plugins](https://github.com/mixatheme/Wireframe#plugins) | [Objects](https://github.com/mixatheme/Wireframe#objects) | [Top](https://github.com/mixatheme/Wireframe#wireframe-suite)
@@ -35,7 +35,7 @@ Welcome Theme Developers! There's one thing that all WordPress sites have common
 
 Ah, so you want to develop WordPress plugins? Awesome! We love Plugin Developers because with your creativity, the sky's the limit--and plugins always add more value to any WordPress site. Wireframe provides you with a boilerplate plugin to help speed up development and lower your production costs.
 
-* [Wireframe Plugin](https://github.com/mixatheme/wp-wireframe-plugin) An OOP boilerplate plugin for building quality products.
+* [Wireframe Plugin](https://github.com/mixatheme/wp-wireframe-plugin) - An OOP boilerplate plugin for building quality products.
 
 [Components](https://github.com/mixatheme/Wireframe#components) | 
 [Themes](https://github.com/mixatheme/Wireframe#themes) | [Objects](https://github.com/mixatheme/Wireframe#objects) | [Top](https://github.com/mixatheme/Wireframe#wireframe-suite)
@@ -48,31 +48,20 @@ Wireframe objects consist of modular class files which help you rapidly develop 
 
 ##### Shared Objects
 
-* Core_Container_Interface
 * Core_Container
-* Core_Enqueue_Interface
 * Core_Enqueue
-* Core_Language_Interface
 * Core_Language
-* Core_Module_Abstract
+* Core_Module
 
 ##### Objects for Themes
 
-* Core_Theme_Interface
 * Core_Theme
-* Theme_Admin_Interface
 * Theme_Admin
-* Theme_Customizer_Interface
 * Theme_Customizer
-* Theme_Editor_Interface
 * Theme_Editor
-* Theme_Features_Interface
 * Theme_Features
-* Theme_Mainmenu_Interface
 * Theme_Mainmenu
-* Theme_Notices_Interface
 * Theme_Notices
-* Theme_UI_Interface
 * Theme_UI
 
 ##### Objects for Plugins
