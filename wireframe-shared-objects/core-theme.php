@@ -1,141 +1,141 @@
 <?php
 /**
- * Core_Theme is a Wireframe core class packaged with WP Wireframe Theme.
+ * Core_Theme is a Wireframe core class packaged with Wireframe Theme.
  *
  * PHP version 5.6.0
  *
- * @package   WP Wireframe Theme
+ * @package   Wireframe
  * @author    MixaTheme, Tada Burke
- * @version   1.0.0 WP Wireframe Theme
+ * @version   1.0.0 Wireframe_Theme
  * @copyright 2012-2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
  *
- * WP Wireframe Theme is distributed in the hope that it will be useful,
+ * This software is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with WP Wireframe Theme. If not, see <http://www.gnu.org/licenses/>.
+ * along with this software. If not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
  * Namespaces.
  *
  * @since 5.3.0 PHP
- * @since 1.0.0 WP Wireframe Theme
+ * @since 1.0.0 Wireframe_Theme
  */
-namespace MixaTheme\WPWFT;
+namespace MixaTheme\WireframeTheme;
 
 /**
  * No direct access to this file.
  *
- * @since 1.0.0 WP Wireframe Theme
+ * @since 1.0.0 Wireframe_Theme
  */
 defined( 'ABSPATH' ) or die();
 
 /**
  * Check if the class exists.
  *
- * @since 1.0.0 WP Wireframe Theme
+ * @since 1.0.0 Wireframe_Theme
  */
-if ( ! class_exists( 'MixaTheme\WPWFT\Core_Theme' ) ) :
+if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Theme' ) ) :
 	/**
 	 * Core_Theme is a core theme class for wiring theme circuits.
 	 *
 	 * @since 1.0.0 Wireframe
-	 * @since 1.0.0 WP Wireframe Theme
+	 * @since 1.0.0 Wireframe_Theme
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
 	final class Core_Theme implements Core_Theme_Interface {
 		/**
-		 * Themes must wire a Language circuit.
+		 * Themes must wire Core_Language.
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    object $_language
 		 */
 		private $_language;
 
 		/**
-		 * Themes must wire a Notices circuit.
+		 * Themes must wire Theme_Notices.
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    object $_notices
 		 */
 		private $_notices;
 
 		/**
-		 * Themes must wire a UI circuit
+		 * Themes must wire Theme_UI.
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    object $_ui
 		 */
 		private $_ui;
 
 		/**
-		 * Themes must wire a Mainmenu circuit.
+		 * Themes must wire Theme_Navigation.
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
-		 * @var    object $_mainmenu
+		 * @since  1.0.0 Wireframe_Theme
+		 * @var    object $_navigation
 		 */
-		private $_mainmenu;
+		private $_navigation;
 
 		/**
-		 * Themes must wire a Widgets circuit.
+		 * Themes must wire Theme_Widgets.
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    object $_widgets
 		 */
 		private $_widgets;
 
 		/**
-		 * Themes must wire a Features circuit.
+		 * Themes must wire Theme_Features.
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    object $_features
 		 */
 		private $_features;
 
 		/**
-		 * Themes can optionally wire a Customizer circuit.
+		 * Themes can optionally wire Theme_Customizer.
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    object $_customizer
 		 */
 		private $_customizer;
 
 		/**
-		 * Themes can optionally wire an Editor circuit.
+		 * Themes can optionally wire Theme_Editor.
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    object $_editor
 		 */
 		private $_editor;
 
 		/**
-		 * Themes can optionally wire an Admin circuit.
+		 * Themes can optionally wire Theme_Admin.
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    object $_admin
 		 */
 		private $_admin;
@@ -144,11 +144,11 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Theme' ) ) :
 		 * Constructor runs when this class is instantiated.
 		 *
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 * @param object $language   Core_Language_Interface.
 		 * @param object $notices    Theme_Notices_Interface.
 		 * @param object $ui         Theme_UI_Interface.
-		 * @param object $mainmenu   Theme_Mainmenu_Interface.
+		 * @param object $navigation Theme_Navigation_Interface.
 		 * @param object $widgets    Theme_Widgets_Interface.
 		 * @param object $features   Theme_Features_Interface.
 		 * @param object $customizer Theme_Customizer_Interface.
@@ -157,13 +157,13 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Theme' ) ) :
 		 *
 		 * @internal WPCS may throw `Unknown type hint` for DI objects.
 		 */
-		public function __construct( Core_Language_Interface $language, Theme_Notices_Interface $notices, Theme_UI_Interface $ui, Theme_Mainmenu_Interface $mainmenu, Theme_Widgets_Interface $widgets, Theme_Features_Interface $features, Theme_Customizer_Interface $customizer = null, Theme_Editor_Interface $editor = null, Theme_Admin_Interface $admin = null ) {
+		public function __construct( Core_Language_Interface $language, Theme_Notices_Interface $notices, Theme_UI_Interface $ui, Theme_Navigation_Interface $navigation, Theme_Widgets_Interface $widgets, Theme_Features_Interface $features, Theme_Customizer_Interface $customizer = null, Theme_Editor_Interface $editor = null, Theme_Admin_Interface $admin = null ) {
 
 			// Default properties required for this class.
 			$this->_language   = $language;
 			$this->_notices    = $notices;
 			$this->_ui         = $ui;
-			$this->_mainmenu   = $mainmenu;
+			$this->_navigation = $navigation;
 			$this->_widgets    = $widgets;
 			$this->_features   = $features;
 			$this->_customizer = $customizer;
@@ -175,7 +175,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Theme' ) ) :
 		 * Get Language.
 		 *
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @return object $_language
 		 */
 		public function language() {
@@ -188,7 +188,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Theme' ) ) :
 		 * Get Notices.
 		 *
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @return object $_notices
 		 */
 		public function notices() {
@@ -201,7 +201,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Theme' ) ) :
 		 * Get UI.
 		 *
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @return object $_ui
 		 */
 		public function ui() {
@@ -211,15 +211,15 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Theme' ) ) :
 		}
 
 		/**
-		 * Get Mainmenu.
+		 * Get Navigation.
 		 *
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
-		 * @return object $_mainmenu
+		 * @since  1.0.0 Wireframe_Theme
+		 * @return object $_navigation
 		 */
-		public function mainmenu() {
-			if ( isset( $this->_mainmenu ) ) {
-				return $this->_mainmenu;
+		public function navigation() {
+			if ( isset( $this->_navigation ) ) {
+				return $this->_navigation;
 			}
 		}
 
@@ -227,7 +227,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Theme' ) ) :
 		 * Get Widgets.
 		 *
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @return object $_widgets
 		 */
 		public function widgets() {
@@ -240,7 +240,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Theme' ) ) :
 		 * Get Features.
 		 *
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @return object $_features
 		 */
 		public function features() {
@@ -253,7 +253,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Theme' ) ) :
 		 * Get Customizer.
 		 *
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @return object $_customizer
 		 */
 		public function customizer() {
@@ -266,7 +266,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Theme' ) ) :
 		 * Get Editor.
 		 *
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @return object $_editor
 		 */
 		public function editor() {
@@ -279,7 +279,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Theme' ) ) :
 		 * Get Admin.
 		 *
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @return object $_admin
 		 */
 		public function admin() {

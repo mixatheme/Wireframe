@@ -1,53 +1,53 @@
 <?php
 /**
- * Theme_Editor is a Wireframe theme class packaged with WP Wireframe Theme.
+ * Theme_Editor is a Wireframe theme class packaged with Wireframe Theme.
  *
  * PHP version 5.6.0
  *
- * @package   WP Wireframe Theme
+ * @package   Wireframe
  * @author    MixaTheme, Tada Burke
- * @version   1.0.0 WP Wireframe Theme
+ * @version   1.0.0 Wireframe_Theme
  * @copyright 2012-2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
  *
- * WP Wireframe Theme is distributed in the hope that it will be useful,
+ * This software is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with WP Wireframe Theme. If not, see <http://www.gnu.org/licenses/>.
+ * along with this software. If not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
  * Namespaces.
  *
  * @since 5.3.0 PHP
- * @since 1.0.0 WP Wireframe Theme
+ * @since 1.0.0 Wireframe_Theme
  */
-namespace MixaTheme\WPWFT;
+namespace MixaTheme\WireframeTheme;
 
 /**
  * No direct access to this file.
  *
- * @since 1.0.0 WP Wireframe Theme
+ * @since 1.0.0 Wireframe_Theme
  */
 defined( 'ABSPATH' ) or die();
 
 /**
  * Check if the class exists.
  *
- * @since 1.0.0 WP Wireframe Theme
+ * @since 1.0.0 Wireframe_Theme
  */
-if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Editor' ) ) :
+if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Editor' ) ) :
 	/**
 	 * Theme_Editor is a theme class for wiring TinyMCE.
 	 *
 	 * @since 2.9.0 WordPress
 	 * @since 1.0.0 Wireframe
-	 * @since 1.0.0 WP Wireframe Theme
+	 * @since 1.0.0 Wireframe_Theme
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
 	final class Theme_Editor extends Core_Module_Abstract implements Theme_Editor_Interface {
@@ -56,7 +56,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Editor' ) ) :
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $_editor_style
 		 */
 		private $_editor_style;
@@ -66,7 +66,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Editor' ) ) :
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $_style_formats
 		 */
 		private $_style_formats;
@@ -74,7 +74,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Editor' ) ) :
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 * @param array $config Config data.
 		 */
 		public function __construct( $config ) {
@@ -90,12 +90,12 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Editor' ) ) :
 			$this->_filters = $config['filters'];
 
 			/**
-			 * Most objects are not required to be hooked when instantiated.
-			 * In your object config file(s), you can set the `$hooked` value
+			 * Most objects are not required to be wired (hooked) when instantiated.
+			 * In your object config file(s), you can set the `$wired` value
 			 * to true or false. If false, you can decouple any hooks and declare
 			 * them elsewhere. If true, then objects fire hooks onload.
 			 *
-			 * Config data files are located in: `wpwft_dev/wireframe/config/`
+			 * Config data files are located in: `wireframe_dev/wireframe/config/`
 			 */
 			if ( isset( $this->wired ) ) {
 				$this->wire_actions( $this->_actions );
@@ -107,11 +107,11 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Editor' ) ) :
 		 * Editor Style.
 		 *
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function editor_style() {
 			if ( isset( $this->_editor_style ) ) {
-				$filter = apply_filters( WPWFT_TEXTDOMAIN . '_' . __FUNCTION__, $this->_editor_style );
+				$filter = apply_filters( WFTHEME_TEXTDOMAIN . '_' . __FUNCTION__, $this->_editor_style );
 				add_editor_style( $filter );
 			}
 		}
@@ -123,7 +123,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Editor' ) ) :
 		 * Puts the buttons on Row 2.
 		 *
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 * @param array $buttons Row 2 buttons.
 		 */
 		public function buttons_2( $buttons ) {
@@ -141,13 +141,13 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Editor' ) ) :
 		 * is a format with it's own settings.
 		 *
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @param  array $json Args for style formats.
 		 * @return array $json JSON formatted array.
 		 */
 		public function style_formats( $json ) {
 			if ( isset( $this->_style_formats ) && isset( $json ) ) {
-				$filter = apply_filters( WPWFT_TEXTDOMAIN . '_editor_style_formats', $this->_style_formats );
+				$filter = apply_filters( WFTHEME_TEXTDOMAIN . '_editor_style_formats', $this->_style_formats );
 				$json['style_formats'] = wp_json_encode( $filter );
 				return $json;
 			}

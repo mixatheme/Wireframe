@@ -1,47 +1,47 @@
 <?php
 /**
- * Theme_Customizer_Interface is a Wireframe theme interface packaged with WP Wireframe Theme.
+ * Theme_Customizer_Interface is a Wireframe theme interface packaged with Wireframe Theme.
  *
  * PHP version 5.6.0
  *
- * @package   WP Wireframe Theme
+ * @package   Wireframe
  * @author    MixaTheme, Tada Burke
- * @version   1.0.0 WP Wireframe Theme
+ * @version   1.0.0 Wireframe_Theme
  * @copyright 2012-2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
  *
- * WP Wireframe Theme is distributed in the hope that it will be useful,
+ * This software is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with WP Wireframe Theme. If not, see <http://www.gnu.org/licenses/>.
+ * along with this software. If not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
  * Namespace.
  *
  * @since 5.3.0 PHP
- * @since 1.0.0 WP Wireframe Theme
+ * @since 1.0.0 Wireframe_Theme
  */
-namespace MixaTheme\WPWFT;
+namespace MixaTheme\WireframeTheme;
 
 /**
  * No direct access to this file.
  *
- * @since 1.0.0 WP Wireframe Theme
+ * @since 1.0.0 Wireframe_Theme
  */
 defined( 'ABSPATH' ) or die();
 
 /**
  * Check if the class exists.
  *
- * @since 1.0.0 WP Wireframe Theme
+ * @since 1.0.0 Wireframe_Theme
  */
-if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer_Interface' ) ) :
+if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Customizer_Interface' ) ) :
 	/**
 	 * Theme_Customizer_Interface contract for previewing front-end modifications.
 	 *
@@ -50,7 +50,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer_Interface' ) ) :
 	 * All untrusted data should be escaped before output.
 	 *
 	 * @since 1.0.0 Wireframe
-	 * @since 1.0.0 WP Wireframe Theme
+	 * @since 1.0.0 Wireframe_Theme
 	 * @see   https://codex.wordpress.org/Theme_Customization_API
 	 * @see   https://github.com/mixatheme/Wireframe
 	 *
@@ -64,7 +64,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer_Interface' ) ) :
 		 *
 		 * @since 3.4.0 WordPress introduced `customize_register` action.
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 * @param object $wp_customize WP_Customize_Manager.
 		 */
 		public function register( $wp_customize );
@@ -81,7 +81,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer_Interface' ) ) :
 		 * `preview-scripts.js` file.
 		 *
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function preview_scripts();
 
@@ -93,7 +93,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer_Interface' ) ) :
 		 * you need to add a new line of dynamically generated CSS here.
 		 *
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 * @see   add_action('wp_head')
 		 * @see   $this->css()
 		 * @todo  Generated CSS should be decoupled in @version 1.0.1.
@@ -109,7 +109,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer_Interface' ) ) :
 		 * setting ($mod_name) has no defined value, the CSS will not be output.
 		 *
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @see    get_theme_mod()
 		 * @param  string $selector CSS selector.
 		 * @param  string $style    The name of the CSS *property* to modify.

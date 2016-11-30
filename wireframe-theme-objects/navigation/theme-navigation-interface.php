@@ -1,6 +1,6 @@
 <?php
 /**
- * Core_Container is a Wireframe core class packaged with Wireframe Theme.
+ * Theme_Navigation_Interface is a Wireframe theme interface packaged with Wireframe Theme.
  *
  * PHP version 5.6.0
  *
@@ -22,7 +22,7 @@
  */
 
 /**
- * Namespaces.
+ * Namespace.
  *
  * @since 5.3.0 PHP
  * @since 1.0.0 Wireframe_Theme
@@ -41,52 +41,29 @@ defined( 'ABSPATH' ) or die();
  *
  * @since 1.0.0 Wireframe_Theme
  */
-if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Container' ) ) :
+if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Navigation_Interface' ) ) :
 	/**
-	 * Core_Container is a core theme class for storing objects.
+	 * Theme_Navigation_Interface contract for nav menus.
 	 *
+	 * Security Reminder: If you are saving any data to the Database, you should
+	 * validate and/or sanitize untrusted data before entering into the database.
+	 * All untrusted data should be escaped before output.
+	 *
+	 * @since 2.9.0 WordPress
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Theme
 	 * @see   https://github.com/mixatheme/Wireframe
-	 * @see   http://fabien.potencier.org/do-you-need-a-dependency-injection-container.html
-	 *
-	 * @internal Thanks: Fabien Potencier
 	 */
-	final class Core_Container implements Core_Container_Interface {
+	interface Theme_Navigation_Interface {
 		/**
-		 * Storage array.
-		 *
-		 * @access private
-		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $storage Array of objects.
-		 */
-		private $storage = array();
-
-		/**
-		 * Register service with the Storage array.
+		 * Set Primary menu.
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
-		 * @param string   $service  Service key.
-		 * @param callable $resolver Service instance value.
+		 * @see   wp_nav_menu()
 		 */
-		public function __set( $service, $resolver ) {
-			$this->storage[ $service ] = $resolver;
-		}
+		public function primary_menu();
 
-		/**
-		 * Get service from the Storage array.
-		 *
-		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 Wireframe_Theme
-		 * @param  string $service Service key.
-		 * @return callable Closure as an object instance.
-		 */
-		public function __get( $service ) {
-			return $this->storage[ $service ]();
-		}
-
-	} // Core_Container.
+	} // Theme_Navigation_Interface.
 
 endif; // Thanks for using MixaTheme products!

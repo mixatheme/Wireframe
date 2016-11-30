@@ -1,6 +1,6 @@
 <?php
 /**
- * Core_Language is a Wireframe core class packaged with Wireframe Theme.
+ * Theme_Widgets is a Wireframe theme class packaged with WPWWireframe ThemeFT.
  *
  * PHP version 5.6.0
  *
@@ -28,7 +28,6 @@
  * @since 1.0.0 Wireframe_Theme
  */
 namespace MixaTheme\WireframeTheme;
-use WP_Error;
 
 /**
  * No direct access to this file.
@@ -42,37 +41,53 @@ defined( 'ABSPATH' ) or die();
  *
  * @since 1.0.0 Wireframe_Theme
  */
-if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Language' ) ) :
+if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Widgets' ) ) :
 	/**
-	 * Core_Language is a core theme class for wiring i18n & l10n translation.
+	 * Theme_Widgets is a theme class for wiring sidebars & widgets.
+	 *
+	 * If you create a custom widget sub-class, be advised that WPWFT
+	 * supports `Selective Refresh` by default. However, your custom widgets
+	 * must be declared using: 'customize_selective_refresh' => true
+	 *
+	 * @example https://developer.wordpress.org/themes/advanced-topics/customizer-api/#widget-support
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Theme
 	 * @see   https://github.com/mixatheme/Wireframe
-	 * @todo  There's zero reason for this to be a class.
 	 */
-	final class Core_Language extends Core_Module_Abstract implements Core_Language_Interface {
+	final class Theme_Widgets extends Core_Module_Abstract implements Theme_Widgets_Interface {
 		/**
-		 * Path.
+		 * Registered.
 		 *
 		 * @access protected
 		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $path
+		 * @var    array $registered Regisered widgets.
 		 */
-		protected $path;
+		protected $registered;
+
+		/**
+		 * Unregistered.
+		 *
+		 * @access protected
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Theme
+		 * @var    array $unregistered Unregistered widgets.
+		 */
+		protected $unregistered;
 
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
-		 * @param array $config Data via config file.
+		 * @param array $config Config data.
 		 */
 		public function __construct( $config ) {
 
 			// Custom properties required for this class.
-			$this->path = $config['path'];
+			$this->registered   = $config['registered'];
+			$this->unregistered = $config['unregistered'];
 
 			// Default properties via Circuit abstract class.
 			$this->wired    = $config['wired'];
@@ -95,22 +110,34 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Language' ) ) :
 		}
 
 		/**
-		 * Load theme textdomain.
+		 * Register Widgets.
 		 *
-		 * @since 3.1.0 WordPress
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 */
-		public function textdomain() {
-			if ( isset( $this->prefix ) && isset( $this->path ) ) {
-				$filterable = apply_filters(
-					$this->prefix . '_' . __FUNCTION__,
-					$this->path
-				);
-				load_theme_textdomain( $this->prefix, $filterable );
+		public function register() {
+			if ( isset( $this->registered ) ) {
+				foreach ( $this->registered as $key => $widget ) {
+					register_sidebar( $widget );
+				}
 			}
 		}
 
-	} // Core_Language.
+		/**
+		 * Unregister Widgets.
+		 *
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Theme
+		 * @todo  Should this be baked-in or disallowed?
+		 */
+		public function unregister() {
+			if ( isset( $this->unregistered ) ) {
+				foreach ( $this->unregistered as $key => $widget ) {
+					unregister_sidebar( $widget );
+				}
+			}
+		}
+
+	} // Theme_Widgets.
 
 endif; // Thanks for using MixaTheme products!

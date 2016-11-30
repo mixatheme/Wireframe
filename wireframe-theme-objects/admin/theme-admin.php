@@ -1,52 +1,52 @@
 <?php
 /**
- * Theme_Admin is a Wireframe theme class packaged with WP Wireframe Theme.
+ * Theme_Admin is a Wireframe theme class packaged with Wireframe Theme.
  *
  * PHP version 5.6.0
  *
- * @package   WP Wireframe Theme
+ * @package   Wireframe
  * @author    MixaTheme, Tada Burke
- * @version   1.0.0 WP Wireframe Theme
+ * @version   1.0.0 Wireframe_Theme
  * @copyright 2012-2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
  *
- * WP Wireframe Theme is distributed in the hope that it will be useful,
+ * This software is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with WP Wireframe Theme. If not, see <http://www.gnu.org/licenses/>.
+ * along with this software. If not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
  * Namespaces.
  *
  * @since 5.3.0 PHP
- * @since 1.0.0 WP Wireframe Theme
+ * @since 1.0.0 Wireframe_Theme
  */
-namespace MixaTheme\WPWFT;
+namespace MixaTheme\WireframeTheme;
 
 /**
  * No direct access to this file.
  *
- * @since 1.0.0 WP Wireframe Theme
+ * @since 1.0.0 Wireframe_Theme
  */
 defined( 'ABSPATH' ) or die();
 
 /**
  * Check if the class exists.
  *
- * @since 1.0.0 WP Wireframe Theme
+ * @since 1.0.0 Wireframe_Theme
  */
-if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Admin' ) ) :
+if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Admin' ) ) :
 	/**
 	 * Theme_Admin is a theme class for wiring back-end menu pages.
 	 *
 	 * @since 1.0.0 Wireframe
-	 * @since 1.0.0 WP Wireframe Theme
+	 * @since 1.0.0 Wireframe_Theme
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
 	final class Theme_Admin extends Core_Module_Abstract implements Theme_Admin_Interface {
@@ -55,7 +55,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Admin' ) ) :
 		 *
 		 * @access protected
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $theme_page
 		 */
 		protected $theme_page;
@@ -64,7 +64,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Admin' ) ) :
 		 * Constructor runs when this class is instantiated.
 		 *
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 * @param array $config Config data.
 		 */
 		public function __construct( $config ) {
@@ -79,12 +79,12 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Admin' ) ) :
 			$this->_filters = $config['filters'];
 
 			/**
-			 * Most objects are not required to be hooked when instantiated.
-			 * In your object config file(s), you can set the `$hooked` value
+			 * Most objects are not required to be wired (hooked) when instantiated.
+			 * In your object config file(s), you can set the `$wired` value
 			 * to true or false. If false, you can decouple any hooks and declare
 			 * them elsewhere. If true, then objects fire hooks onload.
 			 *
-			 * Config data files are located in: `wpwft_dev/wireframe/config/`
+			 * Config data files are located in: `wireframe_dev/wireframe/config/`
 			 */
 			if ( isset( $this->wired ) ) {
 				$this->wire_actions( $this->_actions );
@@ -96,7 +96,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Admin' ) ) :
 		 * Add sub menu page to the Appearance menu.
 		 *
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function theme_page() {
 			if ( isset( $this->theme_page ) ) {

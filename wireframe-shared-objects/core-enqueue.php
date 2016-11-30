@@ -1,51 +1,52 @@
 <?php
 /**
- * Core_Enqueue is a Wireframe core class.
+ * Core_Enqueue is a Wireframe core class packaged with Wireframe Theme.
  *
  * PHP version 5.6.0
  *
  * @package   Wireframe
  * @author    MixaTheme, Tada Burke
- * @version   1.0.0 Wireframe
+ * @version   1.0.0 Wireframe_Theme
  * @copyright 2012-2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
  *
- * Wireframe is distributed in the hope that it will be useful,
+ * This software is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Wireframe. If not, see <http://www.gnu.org/licenses/>.
+ * along with this software. If not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
  * Namespaces.
  *
  * @since 5.3.0 PHP
- * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Theme
  */
-namespace MixaTheme\WPWFT;
+namespace MixaTheme\WireframeTheme;
 
 /**
  * No direct access to this file.
  *
- * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Theme
  */
 defined( 'ABSPATH' ) or die();
 
 /**
  * Check if the class exists.
  *
- * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Theme
  */
-if ( ! class_exists( 'MixaTheme\WPWFT\Core_Enqueue' ) ) :
+if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Enqueue' ) ) :
 	/**
 	 * Core_Enqueue is a core theme class for wiring styles & scripts.
 	 *
 	 * @since 1.0.0 Wireframe
+	 * @since 1.0.0 Wireframe_Theme
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
 	final class Core_Enqueue implements Core_Enqueue_Interface {
@@ -54,6 +55,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Enqueue' ) ) :
 		 *
 		 * @access protected
 		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    string $prefix
 		 */
 		protected $prefix;
@@ -63,6 +65,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Enqueue' ) ) :
 		 *
 		 * @access protected
 		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $styles
 		 */
 		protected $styles = array();
@@ -72,6 +75,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Enqueue' ) ) :
 		 *
 		 * @access protected
 		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $scripts
 		 */
 		protected $scripts = array();
@@ -81,6 +85,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Enqueue' ) ) :
 		 *
 		 * @access protected
 		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    bool $mediamodal
 		 */
 		protected $mediamodal = false;
@@ -90,6 +95,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Enqueue' ) ) :
 		 *
 		 * @access protected
 		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    bool $stylecss
 		 */
 		protected $stylecss = false;
@@ -99,6 +105,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Enqueue' ) ) :
 		 *
 		 * @access protected
 		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    bool $commentjs
 		 */
 		protected $commentjs = false;
@@ -107,6 +114,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Enqueue' ) ) :
 		 * Constructor runs when this class is instantiated.
 		 *
 		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Theme
 		 * @param string $prefix     Prefix for handles.
 		 * @param array  $styles     Styles to hook.
 		 * @param array  $scripts    Scripts to hook.
@@ -129,7 +137,8 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Enqueue' ) ) :
 		 * Core_Enqueue the custom CSS files passed via functions.php.
 		 *
 		 * @since 1.0.0 Wireframe
-		 * @see   wpwft_version() Optional WP_DEBUG helper.
+		 * @since 1.0.0 Wireframe_Theme
+		 * @see   wftheme_version() Optional WP_DEBUG helper.
 		 */
 		public function styles() {
 
@@ -152,7 +161,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Enqueue' ) ) :
 					$handle,
 					trailingslashit( $value['path'] ) . $value['file'] . '.css',
 					$value['deps'],
-					WPWFT_VERSION,
+					WFTHEME_VERSION,
 					$value['media']
 				);
 
@@ -165,7 +174,8 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Enqueue' ) ) :
 		 * Core_Enqueue any custom JS files passed in.
 		 *
 		 * @since 1.0.0 Wireframe
-		 * @see   wpwft_version() Optional WP_DEBUG helper.
+		 * @since 1.0.0 Wireframe_Theme
+		 * @see   wftheme_version() Optional WP_DEBUG helper.
 		 * @see   https://codex.wordpress.org/Function_Reference/wp_localize_script
 		 */
 		public function scripts() {
@@ -196,7 +206,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Enqueue' ) ) :
 					$handle,
 					trailingslashit( $value['path'] ) . $value['file'] . '.js',
 					$value['deps'],
-					WPWFT_VERSION,
+					WFTHEME_VERSION,
 					$value['footer']
 				);
 
@@ -215,6 +225,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Enqueue' ) ) :
 		 * Core_Enqueue the Media modal script.
 		 *
 		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Theme
 		 * @todo  Should this be enqueued contextually somehow?
 		 */
 		public function mediamodal() {
@@ -227,6 +238,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Enqueue' ) ) :
 		 * Core_Enqueue the main style.css stylesheet.
 		 *
 		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function stylecss() {
 			if ( isset( $this->prefix ) && true === $this->stylecss ) {
@@ -242,6 +254,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Core_Enqueue' ) ) :
 		 * Core_Enqueue the main `comment-reply` script.
 		 *
 		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function commentjs() {
 			if ( isset( $this->commentjs ) && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

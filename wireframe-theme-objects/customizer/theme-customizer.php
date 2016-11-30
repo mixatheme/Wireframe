@@ -1,56 +1,52 @@
 <?php
 /**
- * Theme_Customizer is a Wireframe theme class packaged with WP Wireframe Theme.
+ * Theme_Customizer is a Wireframe theme class packaged with Wireframe Theme.
  *
  * PHP version 5.6.0
  *
- * @package   WP Wireframe Theme
+ * @package   Wireframe
  * @author    MixaTheme, Tada Burke
- * @version   1.0.0 WP Wireframe Theme
+ * @version   1.0.0 Wireframe_Theme
  * @copyright 2012-2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
  *
- * WP Wireframe Theme is distributed in the hope that it will be useful,
+ * This software is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with WP Wireframe Theme. If not, see <http://www.gnu.org/licenses/>.
+ * along with this software. If not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
  * Namespaces.
  *
  * @since 5.3.0 PHP
- * @since 1.0.0 WP Wireframe Theme
+ * @since 1.0.0 Wireframe_Theme
  */
-namespace MixaTheme\WPWFT;
+namespace MixaTheme\WireframeTheme;
 
 /**
  * No direct access to this file.
  *
- * @since 1.0.0 WP Wireframe Theme
+ * @since 1.0.0 Wireframe_Theme
  */
 defined( 'ABSPATH' ) or die();
 
 /**
  * Check if the class exists.
  *
- * @since 1.0.0 WP Wireframe Theme
+ * @since 1.0.0 Wireframe_Theme
  */
-if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer' ) ) :
+if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Customizer' ) ) :
 	/**
 	 * Theme_Customizer is a theme class for wiring live preview modifications.
 	 *
-	 * Security Reminder: If you are saving any data to the Database, you should
-	 * validate and/or sanitize untrusted data before entering into the database.
-	 * All untrusted data should be escaped before output.
-	 *
 	 * @since 1.0.0 Wireframe
-	 * @since 1.0.0 WP Wireframe Theme
+	 * @since 1.0.0 Wireframe_Theme
 	 * @see   https://codex.wordpress.org/Theme_Customization_API
 	 * @see   https://github.com/mixatheme/Wireframe
 	 *
@@ -61,17 +57,17 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer' ) ) :
 		 * Version.
 		 *
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 * @var   int VERS
 		 */
-		const VERS = WPWFT_VERSION;
+		const VERS = WFTHEME_VERSION;
 
 		/**
 		 * Settings.
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $_settings
 		 */
 		private $_settings;
@@ -81,7 +77,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer' ) ) :
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $_partials
 		 */
 		private $_partials;
@@ -91,7 +87,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer' ) ) :
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $_controls
 		 */
 		private $_controls;
@@ -101,7 +97,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer' ) ) :
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $_panels
 		 */
 		private $_panels;
@@ -111,7 +107,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer' ) ) :
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $_sections
 		 */
 		private $_sections;
@@ -121,7 +117,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer' ) ) :
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $_styles
 		 */
 		private $_styles;
@@ -131,7 +127,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer' ) ) :
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $_scripts
 		 */
 		private $_scripts;
@@ -141,7 +137,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer' ) ) :
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    object Enqueue
 		 */
 		private $_enqueue;
@@ -150,7 +146,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer' ) ) :
 		 * Constructor runs when this class is instantiated.
 		 *
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 * @param array $config Config data.
 		 */
 		public function __construct( $config ) {
@@ -174,12 +170,12 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer' ) ) :
 			$this->_filters = $config['filters'];
 
 			/**
-			 * Most objects are not required to be hooked when instantiated.
-			 * In your object config file(s), you can set the `$hooked` value
+			 * Most objects are not required to be wired (hooked) when instantiated.
+			 * In your object config file(s), you can set the `$wired` value
 			 * to true or false. If false, you can decouple any hooks and declare
 			 * them elsewhere. If true, then objects fire hooks onload.
 			 *
-			 * Config data files are located in: `wpwft_dev/wireframe/config/`
+			 * Config data files are located in: `wireframe_dev/wireframe/config/`
 			 */
 			if ( isset( $this->wired ) ) {
 				$this->wire_actions( $this->_actions );
@@ -194,7 +190,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer' ) ) :
 		 *
 		 * @since 3.4.0 WordPress introduced `customize_register` action.
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 * @param object $wp_customize WP_Customize_Manager.
 		 */
 		public function register( $wp_customize ) {
@@ -224,7 +220,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer' ) ) :
 		 * `preview-scripts.js` file.
 		 *
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function preview_scripts() {
 			if ( isset( $this->_enqueue ) ) {
@@ -240,7 +236,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer' ) ) :
 		 * you need to add a new line of dynamically generated CSS here.
 		 *
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 * @see   _add_action('wp_head')
 		 * @see   $this->css()
 		 * @todo  Generated CSS should be decoupled in @version 1.0.1.
@@ -270,7 +266,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer' ) ) :
 		 * setting ($mod_name) has no defined value, the CSS will not be output.
 		 *
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @see    get_theme_mod()
 		 * @param  string $selector CSS selector.
 		 * @param  string $style    The name of the CSS *property* to modify.
@@ -311,7 +307,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer' ) ) :
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @param  array  $cfg          Config array for assigning ids and values.
 		 * @param  string $part         Customizer part to add.
 		 * @param  object $wp_customize WP_Customize_Manager.
@@ -365,7 +361,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer' ) ) :
 		 * @access private
 		 * @since  3.4.0 WordPress @see WP_Customize_Manager::_add_setting()
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @param  object $wp_customize WP_Customize_Manager.
 		 */
 		private function _add_setting( $wp_customize ) {
@@ -380,7 +376,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer' ) ) :
 		 * @access private
 		 * @since  4.5.0 WordPress @see WP_Customize_Selective_Refresh
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @param  object $wp_customize WP_Customize_Manager.
 		 * @see    https://make.wordpress.org/core/?p=16546
 		 */
@@ -396,7 +392,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer' ) ) :
 		 * @access private
 		 * @since  3.4.0 WordPress @see WP_Customize_Manager::_add_control()
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @param  object $wp_customize WP_Customize_Manager.
 		 */
 		private function _add_control( $wp_customize ) {
@@ -411,7 +407,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer' ) ) :
 		 * @access private
 		 * @since  3.4.0 WordPress @see WP_Customize_Manager
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @param  object $wp_customize WP_Customize_Manager.
 		 */
 		private function _add_panel( $wp_customize ) {
@@ -426,7 +422,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Customizer' ) ) :
 		 * @access private
 		 * @since  3.4.0 WordPress @see WP_Customize_Manager
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @param  object $wp_customize WP_Customize_Manager.
 		 */
 		private function _add_section( $wp_customize ) {

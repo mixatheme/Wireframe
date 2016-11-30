@@ -1,47 +1,47 @@
 <?php
 /**
- * Theme_Features is a Wireframe theme class packaged with WP Wireframe Theme.
+ * Theme_Features is a Wireframe theme class packaged with Wireframe Theme.
  *
  * PHP version 5.6.0
  *
- * @package   WP Wireframe Theme
+ * @package   Wireframe
  * @author    MixaTheme, Tada Burke
- * @version   1.0.0 WP Wireframe Theme
+ * @version   1.0.0 Wireframe_Theme
  * @copyright 2012-2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
  *
- * WP Wireframe Theme is distributed in the hope that it will be useful,
+ * This software is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with WP Wireframe Theme. If not, see <http://www.gnu.org/licenses/>.
+ * along with this software. If not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
  * Namespaces.
  *
  * @since 5.3.0 PHP
- * @since 1.0.0 WP Wireframe Theme
+ * @since 1.0.0 Wireframe_Theme
  */
-namespace MixaTheme\WPWFT;
+namespace MixaTheme\WireframeTheme;
 
 /**
  * No direct access to this file.
  *
- * @since 1.0.0 WP Wireframe Theme
+ * @since 1.0.0 Wireframe_Theme
  */
 defined( 'ABSPATH' ) or die();
 
 /**
  * Check if the class exists.
  *
- * @since 1.0.0 WP Wireframe Theme
+ * @since 1.0.0 Wireframe_Theme
  */
-if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
+if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Features' ) ) :
 	/**
 	 * Theme_Features is a theme class for wiring theme features.
 	 *
@@ -49,7 +49,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 	 * The ‘init’ hook may be too late for some features.
 	 *
 	 * @since 1.0.0 Wireframe
-	 * @since 1.0.0 WP Wireframe Theme
+	 * @since 1.0.0 Wireframe_Theme
 	 * @see   https://developer.wordpress.org/reference/functions/add_theme_support/
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
@@ -59,7 +59,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @access protected
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $custom_header
 		 */
 		protected $custom_header;
@@ -69,7 +69,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @access protected
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $content_width
 		 */
 		protected $content_width;
@@ -79,7 +79,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @access protected
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $post_thumbnails
 		 */
 		protected $post_thumbnails;
@@ -89,7 +89,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @access protected
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $post_thumbnails_size
 		 */
 		protected $post_thumbnails_size;
@@ -99,7 +99,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @access protected
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $feed_links
 		 */
 		protected $feed_links;
@@ -109,7 +109,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @access protected
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $nav_menus
 		 */
 		protected $nav_menus;
@@ -119,7 +119,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @access protected
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $post_formats
 		 */
 		protected $post_formats;
@@ -129,7 +129,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @access protected
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $custom_background
 		 */
 		protected $custom_background;
@@ -139,7 +139,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @access protected
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $html5
 		 */
 		protected $html5;
@@ -149,7 +149,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @access protected
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $title_tag
 		 */
 		protected $title_tag;
@@ -159,7 +159,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @access protected
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $custom_logo
 		 */
 		protected $custom_logo;
@@ -169,7 +169,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @access protected
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $selective_refresh
 		 */
 		protected $selective_refresh;
@@ -178,7 +178,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 * Constructor runs when this class is instantiated.
 		 *
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 * @param array $config Data via config file.
 		 */
 		public function __construct( $config ) {
@@ -204,12 +204,12 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 			$this->_filters = $config['filters'];
 
 			/**
-			 * Most objects are not required to be hooked when instantiated.
-			 * In your object config file(s), you can set the `$hooked` value
+			 * Most objects are not required to be wired (hooked) when instantiated.
+			 * In your object config file(s), you can set the `$wired` value
 			 * to true or false. If false, you can decouple any hooks and declare
 			 * them elsewhere. If true, then objects fire hooks onload.
 			 *
-			 * Config data files are located in: `wpwft_dev/wireframe/config/`
+			 * Config data files are located in: `wireframe_dev/wireframe/config/`
 			 */
 			if ( isset( $this->wired ) ) {
 				$this->wire_actions( $this->_actions );
@@ -225,7 +225,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @since 2.1.0 WordPress @see add_theme_support('custom-header')
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function custom_header() {
 			if ( isset( $this->custom_header ) && isset( $this->prefix ) ) {
@@ -247,7 +247,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 * @global $content_width
 		 * @since  2.6.0 WordPress @see $GLOBALS['content_width']
 		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 WP Wireframe Theme
+		 * @since  1.0.0 Wireframe_Theme
 		 * @see    https://codex.wordpress.org/Content_Width
 		 * @see    https://core.trac.wordpress.org/ticket/21256
 		 *
@@ -282,7 +282,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @since 2.9.0 WordPress @see add_theme_support('post-thumbnails')
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function post_thumbnails() {
 			if ( isset( $this->post_thumbnails ) ) {
@@ -299,7 +299,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @since 2.9.0 WordPress @see set_post_thumbnail_size()
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 * @see   set_post_thumbnail_size()
 		 */
 		public function post_thumbnails_size() {
@@ -321,7 +321,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @since 3.0.0 WordPress @see add_theme_support('automatic-feed-links')
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function feed_links() {
 			if ( isset( $this->feed_links ) && isset( $this->prefix ) ) {
@@ -340,7 +340,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @since 3.0.0 WordPress @see register_nav_menus()
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 * @see   register_nav_menus()
 		 */
 		public function nav_menus() {
@@ -362,7 +362,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @since 3.1.0 WordPress @see add_theme_support('post-formats')
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 * @see   http://codex.wordpress.org/Post_Formats
 		 *
 		 * @internal If Post Formats are enabled, "Standard" will always be a format.
@@ -386,7 +386,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @since 3.4.0 WordPress @see add_theme_support('custom-background')
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function custom_background() {
 			if ( isset( $this->custom_background ) && isset( $this->prefix ) ) {
@@ -406,7 +406,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @since 3.6.0 WordPress @see add_theme_support('html5')
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function html5() {
 			if ( isset( $this->html5 ) && isset( $this->prefix ) ) {
@@ -426,7 +426,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @since 4.1.0 WordPress @see add_theme_support('title-tag')
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 * @see   https://codex.wordpress.org/Title_Tag
 		 */
 		public function title_tag() {
@@ -446,7 +446,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @since 4.5.0 WordPress @see add_theme_support('custom-logo')
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function custom_logo() {
 			if ( isset( $this->custom_logo ) && isset( $this->prefix ) ) {
@@ -465,7 +465,7 @@ if ( ! class_exists( 'MixaTheme\WPWFT\Theme_Features' ) ) :
 		 *
 		 * @since 4.5.0 WordPress @see add_theme_support('customize-selective-refresh-widgets')
 		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 WP Wireframe Theme
+		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function selective_refresh() {
 			if ( isset( $this->selective_refresh ) && isset( $this->prefix ) ) {
