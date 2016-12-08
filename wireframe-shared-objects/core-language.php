@@ -1,13 +1,13 @@
 <?php
 /**
- * Core_Language is a Wireframe core class packaged with Wireframe Theme.
+ * Core_Language is a Wireframe core class.
  *
  * PHP version 5.6.0
  *
- * @package   Wireframe
+ * @package   Wireframe_Theme
  * @author    MixaTheme, Tada Burke
  * @version   1.0.0 Wireframe_Theme
- * @copyright 2012-2016 MixaTheme
+ * @copyright 2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
@@ -27,7 +27,7 @@
  * @since 5.3.0 PHP
  * @since 1.0.0 Wireframe_Theme
  */
-namespace MixaTheme\WireframeTheme;
+namespace MixaTheme\Wireframe\Theme;
 use WP_Error;
 
 /**
@@ -42,11 +42,10 @@ defined( 'ABSPATH' ) or die();
  *
  * @since 1.0.0 Wireframe_Theme
  */
-if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Language' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Language' ) ) :
 	/**
 	 * Core_Language is a core theme class for wiring i18n & l10n translation.
 	 *
-	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Theme
 	 * @see   https://github.com/mixatheme/Wireframe
 	 * @todo  There's zero reason for this to be a class.
@@ -56,7 +55,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Language' ) ) :
 		 * Path.
 		 *
 		 * @access protected
-		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $path
 		 */
@@ -65,7 +63,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Language' ) ) :
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 * @param array $config Data via config file.
 		 */
@@ -74,7 +71,7 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Language' ) ) :
 			// Custom properties required for this class.
 			$this->path = $config['path'];
 
-			// Default properties via Circuit abstract class.
+			// Default properties.
 			$this->wired    = $config['wired'];
 			$this->prefix   = $config['prefix'];
 			$this->_actions = $config['actions'];
@@ -88,7 +85,7 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Language' ) ) :
 			 *
 			 * Config data files are located in: `wireframe_dev/wireframe/config/`
 			 */
-			if ( isset( $this->wired ) ) {
+			if ( isset( $this->wired ) && true === $this->wired ) {
 				$this->wire_actions( $this->_actions );
 				$this->wire_filters( $this->_filters );
 			}
@@ -98,7 +95,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Language' ) ) :
 		 * Load theme textdomain.
 		 *
 		 * @since 3.1.0 WordPress
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function textdomain() {

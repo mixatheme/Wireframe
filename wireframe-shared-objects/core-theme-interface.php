@@ -1,13 +1,13 @@
 <?php
 /**
- * Core_Theme_Interface is a Wireframe core interface packaged with Wireframe Theme.
+ * Core_Theme_Interface is a Wireframe core interface..
  *
  * PHP version 5.6.0
  *
- * @package   Wireframe
+ * @package   Wireframe_Theme
  * @author    MixaTheme, Tada Burke
  * @version   1.0.0 Wireframe_Theme
- * @copyright 2012-2016 MixaTheme
+ * @copyright 2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
@@ -27,7 +27,7 @@
  * @since 5.3.0 PHP
  * @since 1.0.0 Wireframe_Theme
  */
-namespace MixaTheme\WireframeTheme;
+namespace MixaTheme\Wireframe\Theme;
 
 /**
  * No direct access to this file.
@@ -41,11 +41,10 @@ defined( 'ABSPATH' ) or die();
  *
  * @since 1.0.0 Wireframe_Theme
  */
-if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Theme_Interface' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Theme_Interface' ) ) :
 	/**
 	 * Core_Theme_Interface is a core theme contract for wiring theme objects.
 	 *
-	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Theme
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
@@ -53,7 +52,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Theme_Interface' ) ) :
 		/**
 		 * Get Language.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function language();
@@ -61,7 +59,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Theme_Interface' ) ) :
 		/**
 		 * Get UI.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function ui();
@@ -69,7 +66,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Theme_Interface' ) ) :
 		/**
 		 * Get Mainmenu.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function navigation();
@@ -77,7 +73,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Theme_Interface' ) ) :
 		/**
 		 * Get Widgets.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function widgets();
@@ -85,7 +80,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Theme_Interface' ) ) :
 		/**
 		 * Get Features.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function features();
@@ -93,7 +87,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Theme_Interface' ) ) :
 		/**
 		 * Get Customizer.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function customizer();
@@ -101,7 +94,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Theme_Interface' ) ) :
 		/**
 		 * Get Editor.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function editor();

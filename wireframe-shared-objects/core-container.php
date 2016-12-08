@@ -1,13 +1,13 @@
 <?php
 /**
- * Core_Container is a Wireframe core class packaged with Wireframe Theme.
+ * Core_Container is a Wireframe core class.
  *
  * PHP version 5.6.0
  *
- * @package   Wireframe
+ * @package   Wireframe_Theme
  * @author    MixaTheme, Tada Burke
  * @version   1.0.0 Wireframe_Theme
- * @copyright 2012-2016 MixaTheme
+ * @copyright 2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
@@ -27,7 +27,7 @@
  * @since 5.3.0 PHP
  * @since 1.0.0 Wireframe_Theme
  */
-namespace MixaTheme\WireframeTheme;
+namespace MixaTheme\Wireframe\Theme;
 
 /**
  * No direct access to this file.
@@ -41,11 +41,10 @@ defined( 'ABSPATH' ) or die();
  *
  * @since 1.0.0 Wireframe_Theme
  */
-if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Container' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Container' ) ) :
 	/**
-	 * Core_Container is a core theme class for storing objects.
+	 * Core_Container is a core Wireframe class for storing objects.
 	 *
-	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Theme
 	 * @see   https://github.com/mixatheme/Wireframe
 	 * @see   http://fabien.potencier.org/do-you-need-a-dependency-injection-container.html
@@ -57,7 +56,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Container' ) ) :
 		 * Storage array.
 		 *
 		 * @access private
-		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $storage Array of objects.
 		 */
@@ -66,7 +64,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Container' ) ) :
 		/**
 		 * Register service with the Storage array.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 * @param string   $service  Service key.
 		 * @param callable $resolver Service instance value.
@@ -78,7 +75,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Container' ) ) :
 		/**
 		 * Get service from the Storage array.
 		 *
-		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
 		 * @param  string $service Service key.
 		 * @return callable Closure as an object instance.

@@ -1,12 +1,12 @@
 <?php
 /**
- * Theme_Admin is a Wireframe theme class.
+ * Plugin_Admin is a Wireframe module.
  *
  * PHP version 5.6.0
  *
- * @package   Wireframe_Theme
+ * @package   Wireframe_Plugin
  * @author    MixaTheme, Tada Burke
- * @version   1.0.0 Wireframe_Theme
+ * @version   1.0.0 Wireframe_Plugin
  * @copyright 2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
@@ -25,51 +25,59 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
- * @since 1.0.0 Wireframe_Theme
+ * @since 1.0.0 Wireframe_Plugin
  */
-namespace MixaTheme\Wireframe\Theme;
+namespace MixaTheme\Wireframe\Plugin;
 
 /**
  * No direct access to this file.
  *
- * @since 1.0.0 Wireframe_Theme
+ * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();
 
 /**
  * Check if the class exists.
  *
- * @since 1.0.0 Wireframe_Theme
+ * @since 1.0.0 Wireframe_Plugin
  */
-if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Admin' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin' ) ) :
 	/**
-	 * Theme_Admin is a theme class for wiring back-end menu pages.
+	 * Plugin_Admin class for loading back-end menu pages to plugins.
 	 *
-	 * @since 1.0.0 Wireframe_Theme
+	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	final class Theme_Admin extends Core_Module_Abstract implements Theme_Admin_Interface {
+	final class Plugin_Admin extends Core_Module_Abstract implements Plugin_Admin_Interface {
 		/**
-		 * Theme Page.
+		 * Menu Pages.
 		 *
-		 * @access protected
-		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $theme_page
+		 * @since 1.0.0 Wireframe_Plugin
+		 * @var   array $menu_pages
 		 */
-		protected $theme_page;
+		public $menu_pages;
+
+		/**
+		 * Submenu Pages.
+		 *
+		 * @since 1.0.0 Wireframe_Plugin
+		 * @var   array $submenu_pages
+		 */
+		public $submenu_pages;
 
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
-		 * @since 1.0.0 Wireframe_Theme
-		 * @param array $config Config data.
+		 * @since 1.0.0 Wireframe_Plugin
+		 * @param array $config Required array of config variables.
 		 */
 		public function __construct( $config ) {
 
 			// Custom properties required for this class.
-			$this->theme_page = $config['theme_page'];
+			$this->menu_pages    = $config['menu_pages'];
+			$this->submenu_pages = $config['submenu_pages'];
 
-			// Default properties.
+			// Default properties via Wireframe abstract class.
 			$this->wired    = $config['wired'];
 			$this->prefix   = $config['prefix'];
 			$this->_actions = $config['actions'];
@@ -90,14 +98,36 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Admin' ) ) :
 		}
 
 		/**
-		 * Add sub menu page to the Appearance menu.
+		 * Add a top-level menu page.
 		 *
-		 * @since 1.0.0 Wireframe_Theme
+		 * @since 1.0.0 Wireframe_Plugin
 		 */
-		public function theme_page() {
-			if ( isset( $this->theme_page ) ) {
-				foreach ( $this->theme_page as $key => $value ) {
-					add_theme_page(
+		public function menu_pages() {
+			if ( isset( $this->menu_pages ) ) {
+				foreach ( $this->menu_pages as $key => $value ) {
+					add_menu_page(
+						$value['page_title'],
+						$value['menu_title'],
+						$value['capability'],
+						$value['menu_slug'],
+						$value['callback'],
+						$value['icon_url'],
+						$value['position']
+					);
+				}
+			}
+		}
+
+		/**
+		 * Add a submenu page.
+		 *
+		 * @since 1.0.0 Wireframe_Plugin
+		 */
+		public function submenu_pages() {
+			if ( isset( $this->submenu_pages ) ) {
+				foreach ( $this->submenu_pages as $key => $value ) {
+					add_submenu_page(
+						$value['parent_slug'],
 						$value['page_title'],
 						$value['menu_title'],
 						$value['capability'],
@@ -108,6 +138,6 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Admin' ) ) :
 			}
 		}
 
-	} // Theme_Admin.
+	} // Admin.
 
 endif; // Thanks for using MixaTheme products!

@@ -1,13 +1,13 @@
 <?php
 /**
- * Theme_Editor_Interface is a Wireframe theme interface packaged with Wireframe Theme.
+ * Theme_Editor_Interface is a Wireframe theme interface.
  *
  * PHP version 5.6.0
  *
- * @package   Wireframe
+ * @package   Wireframe_Theme
  * @author    MixaTheme, Tada Burke
  * @version   1.0.0 Wireframe_Theme
- * @copyright 2012-2016 MixaTheme
+ * @copyright 2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
@@ -27,7 +27,7 @@
  * @since 5.3.0 PHP
  * @since 1.0.0 Wireframe_Theme
  */
-namespace MixaTheme\WireframeTheme;
+namespace MixaTheme\Wireframe\Theme;
 
 /**
  * No direct access to this file.
@@ -41,7 +41,7 @@ defined( 'ABSPATH' ) or die();
  *
  * @since 1.0.0 Wireframe_Theme
  */
-if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Editor_Interface' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Editor_Interface' ) ) :
 	/**
 	 * Theme_Editor_Interface contract for extending TinyMCE.
 	 *
@@ -50,7 +50,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Editor_Interface' ) ) :
 	 * All untrusted data should be escaped before output.
 	 *
 	 * @since 2.9.0 WordPress
-	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Theme
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
@@ -58,7 +57,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Editor_Interface' ) ) :
 		/**
 		 * Editor Style.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function editor_style();
@@ -69,7 +67,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Editor_Interface' ) ) :
 		 * Callback to insert 'styleselect' into the $buttons array.
 		 * Puts the buttons on Row 2.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 * @param array $buttons Row 2 buttons.
 		 */
@@ -82,7 +79,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Editor_Interface' ) ) :
 		 * a JSON encoded array of $_style_formats. Each array child
 		 * is a format with it's own settings.
 		 *
-		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
 		 * @param  array $json Args for style formats.
 		 * @return array $json JSON formatted array.

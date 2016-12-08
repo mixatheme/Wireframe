@@ -1,13 +1,13 @@
 <?php
 /**
- * Core_Module_Abstract is a Wireframe abstract core class packaged with Wireframe Theme.
+ * Core_Module_Abstract is a Wireframe abstract core class.
  *
  * PHP version 5.6.0
  *
- * @package   Wireframe
+ * @package   Wireframe_Theme
  * @author    MixaTheme, Tada Burke
  * @version   1.0.0 Wireframe_Theme
- * @copyright 2012-2016 MixaTheme
+ * @copyright 2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
@@ -27,7 +27,7 @@
  * @since 5.3.0 PHP
  * @since 1.0.0 Wireframe_Theme
  */
-namespace MixaTheme\WireframeTheme;
+namespace MixaTheme\Wireframe\Theme;
 
 /**
  * No direct access to this file.
@@ -41,11 +41,10 @@ defined( 'ABSPATH' ) or die();
  *
  * @since 1.0.0 Wireframe_Theme
  */
-if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Module_Abstract' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Module_Abstract' ) ) :
 	/**
 	 * Core_Module_Abstract is is a core theme contract for wiring actions & hooks.
 	 *
-	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Theme
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
@@ -54,7 +53,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Module_Abstract' ) ) :
 		 * Wired.
 		 *
 		 * @access protected
-		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
 		 * @var    bool $wired
 		 */
@@ -64,7 +62,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Module_Abstract' ) ) :
 		 * Prefix.
 		 *
 		 * @access protected
-		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
 		 * @var    string $prefix
 		 */
@@ -74,7 +71,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Module_Abstract' ) ) :
 		 * Actions.
 		 *
 		 * @access private
-		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $_actions
 		 */
@@ -84,7 +80,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Module_Abstract' ) ) :
 		 * Filters.
 		 *
 		 * @access private
-		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $_filters
 		 */
@@ -93,7 +88,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Module_Abstract' ) ) :
 		/**
 		 * Get property.
 		 *
-		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
 		 * @param  string $var Property to get.
 		 */
@@ -107,7 +101,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Module_Abstract' ) ) :
 		 * Wire Actions.
 		 *
 		 * @access protected
-		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
 		 * @param  array $actions Actions to hook.
 		 */
@@ -123,7 +116,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Core_Module_Abstract' ) ) :
 		 * Wire Filters.
 		 *
 		 * @access protected
-		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
 		 * @param  array $filters Filters to hook.
 		 */

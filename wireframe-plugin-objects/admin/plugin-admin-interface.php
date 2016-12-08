@@ -1,12 +1,12 @@
 <?php
 /**
- * Core_Language_Interface is a Wireframe core interface..
+ * Plugin_Admin_Interface is a Wireframe interface.
  *
  * PHP version 5.6.0
  *
- * @package   Wireframe_Theme
+ * @package   Wireframe_Plugin
  * @author    MixaTheme, Tada Burke
- * @version   1.0.0 Wireframe_Theme
+ * @version   1.0.0 Wireframe_Plugin
  * @copyright 2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
@@ -25,39 +25,44 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
- * @since 1.0.0 Wireframe_Theme
+ * @since 1.0.0 Wireframe_Plugin
  */
-namespace MixaTheme\Wireframe\Theme;
+namespace MixaTheme\Wireframe\Plugin;
 
 /**
  * No direct access to this file.
  *
- * @since 1.0.0 Wireframe_Theme
+ * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();
 
 /**
  * Check if the class exists.
  *
- * @since 1.0.0 Wireframe_Theme
+ * @since 1.0.0 Wireframe_Plugin
  */
-if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Language_Interface' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin_Interface' ) ) :
 	/**
-	 * Core_Language_Interface is a core theme contract for i18n & l10n translation.
+	 * Plugin_Admin_Interface contract for loading back-end menu pages.
 	 *
-	 * @since 1.0.0 Wireframe_Theme
+	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
-	 * @todo  There's zero reason for this to be a class.
 	 */
-	interface Core_Language_Interface {
+	interface Plugin_Admin_Interface {
 		/**
-		 * Loads the theme's textdomain.
+		 * Add a top-level menu page.
 		 *
-		 * @since 3.1.0 WordPress
-		 * @since 1.0.0 Wireframe_Theme
+		 * @since 1.0.0 Wireframe_Plugin
 		 */
-		public function textdomain();
+		public function menu_pages();
 
-	} // Core_Language_Interface.
+		/**
+		 * Add a submenu page.
+		 *
+		 * @since 1.0.0 Wireframe_Plugin
+		 */
+		public function submenu_pages();
+
+	} // Plugin_Admin_Interface.
 
 endif; // Thanks for using MixaTheme products!

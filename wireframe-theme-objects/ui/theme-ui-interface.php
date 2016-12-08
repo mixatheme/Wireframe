@@ -1,13 +1,13 @@
 <?php
 /**
- * Theme_UI_Interface is a Wireframe theme interface packaged with Wireframe Theme.
+ * Theme_UI_Interface is a Wireframe theme interface.
  *
  * PHP version 5.6.0
  *
- * @package   Wireframe
+ * @package   Wireframe_Theme
  * @author    MixaTheme, Tada Burke
  * @version   1.0.0 Wireframe_Theme
- * @copyright 2012-2016 MixaTheme
+ * @copyright 2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
@@ -27,7 +27,7 @@
  * @since 5.3.0 PHP
  * @since 1.0.0 Wireframe_Theme
  */
-namespace MixaTheme\WireframeTheme;
+namespace MixaTheme\Wireframe\Theme;
 
 /**
  * No direct access to this file.
@@ -41,7 +41,7 @@ defined( 'ABSPATH' ) or die();
  *
  * @since 1.0.0 Wireframe_Theme
  */
-if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_UI_Interface' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_UI_Interface' ) ) :
 	/**
 	 * Theme_UI_Interface contract for front-end presentation.
 	 *
@@ -50,7 +50,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_UI_Interface' ) ) :
 	 * All untrusted data should be escaped before output.
 	 *
 	 * @since 2.9.0 WordPress
-	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Theme
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
@@ -58,7 +57,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_UI_Interface' ) ) :
 		/**
 		 * Enqueue Styles.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function styles();
@@ -66,7 +64,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_UI_Interface' ) ) :
 		/**
 		 * Enqueue Scripts.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function scripts();
@@ -74,7 +71,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_UI_Interface' ) ) :
 		/**
 		 * Enqueue Media Modal.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function mediamodal();
@@ -82,7 +78,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_UI_Interface' ) ) :
 		/**
 		 * Enqueue Style CSS.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function stylecss();
@@ -90,7 +85,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_UI_Interface' ) ) :
 		/**
 		 * Enqueue Comment-Reply JS.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function commentjs();

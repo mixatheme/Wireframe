@@ -1,17 +1,16 @@
 <?php
 /**
- * Theme_Notices is a Wireframe theme class.
+ * Plugin_CPT is a Wireframe module.
  *
  * PHP version 5.6.0
  *
- * @package   Wireframe_Theme
+ * @package   Wireframe_Plugin
  * @author    MixaTheme, Tada Burke
- * @version   1.0.0 Wireframe_Theme
+ * @version   1.0.0 Wireframe_Plugin
  * @copyright 2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
- * @see       https://codex.wordpress.org/Plugin_API/Action_Reference/admin_notices
  *
  * This software is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -26,54 +25,51 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
- * @since 1.0.0 Wireframe_Theme
+ * @since 1.0.0 Wireframe_Plugin
  */
-namespace MixaTheme\Wireframe\Theme;
+namespace MixaTheme\Wireframe\Plugin;
 
 /**
  * No direct access to this file.
  *
- * @since 1.0.0 Wireframe_Theme
+ * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();
 
 /**
  * Check if the class exists.
  *
- * @since 1.0.0 Wireframe_Theme
+ * @since 1.0.0 Wireframe_Plugin
  */
-if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Notices' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_CPT' ) ) :
 	/**
-	 * Theme_Notices is a theme class for wiring notifications.
+	 * Plugin_CPT class for Custom Post Types.
 	 *
-	 * @since 1.0.0 Wireframe_Theme
-	 * @since 1.0.0 Wireframe_Theme
+	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	final class Theme_Notices extends Core_Module_Abstract implements Theme_Notices_Interface {
+	final class Plugin_CPT extends Core_Module_Abstract implements Plugin_CPT_Interface {
 		/**
-		 * Notices.
+		 * Defaults.
 		 *
 		 * @access protected
-		 * @since  1.0.0 Wireframe_Theme
-		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $notices
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    array $defaults
 		 */
-		protected $notices;
+		protected $defaults;
 
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
-		 * @since 1.0.0 Wireframe_Theme
-		 * @since 1.0.0 Wireframe_Theme
-		 * @param array $config Config data.
+		 * @since 1.0.0 Wireframe_Plugin
+		 * @param array $config Required array of config variables.
 		 */
 		public function __construct( $config ) {
 
 			// Custom properties required for this class.
-			$this->notices = $config['notices'];
+			$this->defaults = $config['defaults'];
 
-			// Default properties.
+			// Default properties via Wireframe abstract class.
 			$this->wired    = $config['wired'];
 			$this->prefix   = $config['prefix'];
 			$this->_actions = $config['actions'];
@@ -94,36 +90,31 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Notices' ) ) :
 		}
 
 		/**
-		 * Parent Theme.
+		 * Get Defaults.
 		 *
-		 * This notice is triggered when the Wireframe parent theme is activated.
-		 * You can greet customers, instruct customizers to use child themes,
-		 * recommended plugins to install, etc.
-		 *
-		 * @since 1.0.0 Wireframe_Theme
-		 * @since 1.0.0 Wireframe_Theme
+		 * @since 1.0.0 Wireframe_Plugin
 		 */
-		public function parent_theme() {
-
-			// Default empty notice.
-			$notice  = '';
-
-			// Check if not a child theme and if config has notices.
-			if ( false === is_child_theme() && isset( $this->notices ) ) {
-
-				// Get notice from the array of notices.
-				$value = $this->notices['parent_theme'];
-
-				// Build notice.
-				$notice .= '<div class="' . $value['selectors'] . '"><p>';
-				$notice .= $value['subject'] . '&nbsp;' . $value['message'];
-				$notice .= '</p></div>';
-
-				// Output notice should use the `after_setup_theme` hook.
-				echo wp_kses_post( $notice );
+		public function get_defaults() {
+			if ( isset( $this->defaults ) ) {
+				return $this->defaults;
 			}
 		}
 
-	} // Theme_Notices.
+		/**
+		 * Register custom post type.
+		 *
+		 * @since 2.9.0 WordPress
+		 * @since 1.0.0 Wireframe_Plugin
+		 * @see   https://codex.wordpress.org/Function_Reference/register_post_type
+		 */
+		public function register() {
+			if ( isset( $this->defaults ) ) {
+				foreach ( $this->defaults as $post_type => $args ) {
+					register_post_type( $post_type, $args );
+				}
+			}
+		}
+
+	} // CPT.
 
 endif; // Thanks for using MixaTheme products!

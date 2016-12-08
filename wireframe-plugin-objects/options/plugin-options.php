@@ -1,12 +1,12 @@
 <?php
 /**
- * Theme_UI is a Wireframe power theme class..
+ * Plugin_Options is a Wireframe module.
  *
  * PHP version 5.6.0
  *
- * @package   Wireframe_Theme
+ * @package   Wireframe_Plugin
  * @author    MixaTheme, Tada Burke
- * @version   1.0.0 Wireframe_Theme
+ * @version   1.0.0 Wireframe_Plugin
  * @copyright 2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
@@ -25,42 +25,51 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
- * @since 1.0.0 Wireframe_Theme
+ * @since 1.0.0 Wireframe_Plugin
  */
-namespace MixaTheme\Wireframe\Theme;
+namespace MixaTheme\Wireframe\Plugin;
 
 /**
  * No direct access to this file.
  *
- * @since 1.0.0 Wireframe_Theme
+ * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();
 
 /**
  * Check if the class exists.
  *
- * @since 1.0.0 Wireframe_Theme
+ * @since 1.0.0 Wireframe_Plugin
  */
-if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_UI' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Options' ) ) :
 	/**
-	 * Theme_UI is a theme class for wiring front-end presentation methods.
+	 * Plugin_Options is a Wireframe_Plugin class.
 	 *
-	 * @since 1.0.0 Wireframe_Theme
+	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	final class Theme_UI extends Core_Module_Abstract implements Theme_UI_Interface {
+	final class Plugin_Options extends Core_Module_Abstract implements Plugin_Options_Interface {
+		/**
+		 * Config.
+		 *
+		 * @access private
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    array $_config
+		 */
+		private $_config;
+
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
-		 * @since 1.0.0 Wireframe_Theme
-		 * @param array $config Config data.
+		 * @since 1.0.0 Wireframe_Plugin
+		 * @param array $config Required array of config variables.
 		 */
 		public function __construct( $config ) {
 
 			// Custom properties required for this class.
-			$this->enqueue = $config['enqueue'];
+			$this->defaults = $config['defaults'];
 
-			// Default properties.
+			// Default properties via Wireframe abstract class.
 			$this->wired    = $config['wired'];
 			$this->prefix   = $config['prefix'];
 			$this->_actions = $config['actions'];
@@ -81,60 +90,23 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_UI' ) ) :
 		}
 
 		/**
-		 * Enqueue Styles.
+		 * Get Defaults.
 		 *
-		 * @since 1.0.0 Wireframe_Theme
+		 * @since 1.0.0 Wireframe_Plugin
 		 */
-		public function styles() {
-			if ( null !== $this->enqueue->styles() ) {
-				$this->enqueue->styles();
+		public function get_defaults() {
+			if ( isset( $this->defaults ) ) {
+				return $this->defaults;
 			}
 		}
 
 		/**
-		 * Enqueue Scripts.
+		 * Register.
 		 *
-		 * @since 1.0.0 Wireframe_Theme
+		 * @since 1.0.0 Wireframe_Plugin
 		 */
-		public function scripts() {
-			if ( null !== $this->enqueue->scripts() ) {
-				$this->enqueue->scripts();
-			}
-		}
+		public function register() {}
 
-		/**
-		 * Enqueue Media Modal.
-		 *
-		 * @since 1.0.0 Wireframe_Theme
-		 */
-		public function mediamodal() {
-			if ( null !== $this->enqueue->mediamodal() ) {
-				$this->enqueue->mediamodal();
-			}
-		}
-
-		/**
-		 * Enqueue Style CSS.
-		 *
-		 * @since 1.0.0 Wireframe_Theme
-		 */
-		public function stylecss() {
-			if ( null !== $this->enqueue->stylecss() ) {
-				$this->enqueue->stylecss();
-			}
-		}
-
-		/**
-		 * Enqueue Comment-Reply JS.
-		 *
-		 * @since 1.0.0 Wireframe_Theme
-		 */
-		public function commentjs() {
-			if ( null !== $this->enqueue->commentjs() ) {
-				$this->enqueue->commentjs();
-			}
-		}
-
-	} // UI.
+	} // Options.
 
 endif; // Thanks for using MixaTheme products!

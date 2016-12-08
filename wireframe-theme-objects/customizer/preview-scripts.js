@@ -1,17 +1,17 @@
 /**!
- * Customizer module script for WPWFT.
+ * Customizer module script for Wireframe Theme.
  *
  * Theme Customizer enhancements for a better user experience. Contains handlers
  * to make Theme Customizer preview reload changes asynchronously.
  *
- * @package   Wireframe
+ * @package   Wireframe_Theme
  * @author    MixaTheme, Tada Burke
  * @version   1.0.0 Wireframe_Theme
- * @copyright 2012-2016 MixaTheme
+ * @copyright 2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
- * @see       https://github.com/mixatheme/wftheme
+ * @see       https://github.com/mixatheme/wireframe_theme
  *
  * This software is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of

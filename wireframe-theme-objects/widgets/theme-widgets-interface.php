@@ -1,13 +1,13 @@
 <?php
 /**
- * Theme_Widgets_Interface is a Wireframe theme interface packaged with Wireframe Theme.
+ * Theme_Widgets_Interface is a Wireframe theme interface.
  *
  * PHP version 5.6.0
  *
- * @package   Wireframe
+ * @package   Wireframe_Theme
  * @author    MixaTheme, Tada Burke
  * @version   1.0.0 Wireframe_Theme
- * @copyright 2012-2016 MixaTheme
+ * @copyright 2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
@@ -27,7 +27,7 @@
  * @since 5.3.0 PHP
  * @since 1.0.0 Wireframe_Theme
  */
-namespace MixaTheme\WireframeTheme;
+namespace MixaTheme\Wireframe\Theme;
 
 /**
  * No direct access to this file.
@@ -41,7 +41,7 @@ defined( 'ABSPATH' ) or die();
  *
  * @since 1.0.0 Wireframe_Theme
  */
-if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Widgets_Interface' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Widgets_Interface' ) ) :
 	/**
 	 * Theme_Widgets_Interface contract for registering asides.
 	 *
@@ -49,7 +49,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Widgets_Interface' ) ) :
 	 * validate and/or sanitize untrusted data before entering into the database.
 	 * All untrusted data should be escaped before output.
 	 *
-	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Theme
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
@@ -57,7 +56,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Widgets_Interface' ) ) :
 		/**
 		 * Register Widgets.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function register();

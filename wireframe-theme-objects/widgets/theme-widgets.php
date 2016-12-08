@@ -4,10 +4,10 @@
  *
  * PHP version 5.6.0
  *
- * @package   Wireframe
+ * @package   Wireframe_Theme
  * @author    MixaTheme, Tada Burke
  * @version   1.0.0 Wireframe_Theme
- * @copyright 2012-2016 MixaTheme
+ * @copyright 2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
@@ -27,7 +27,7 @@
  * @since 5.3.0 PHP
  * @since 1.0.0 Wireframe_Theme
  */
-namespace MixaTheme\WireframeTheme;
+namespace MixaTheme\Wireframe\Theme;
 
 /**
  * No direct access to this file.
@@ -41,17 +41,16 @@ defined( 'ABSPATH' ) or die();
  *
  * @since 1.0.0 Wireframe_Theme
  */
-if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Widgets' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Widgets' ) ) :
 	/**
 	 * Theme_Widgets is a theme class for wiring sidebars & widgets.
 	 *
-	 * If you create a custom widget sub-class, be advised that WPWFT
+	 * If you create a custom widget sub-class, be advised that Wireframe Theme
 	 * supports `Selective Refresh` by default. However, your custom widgets
 	 * must be declared using: 'customize_selective_refresh' => true
 	 *
 	 * @example https://developer.wordpress.org/themes/advanced-topics/customizer-api/#widget-support
 	 *
-	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Theme
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
@@ -60,7 +59,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Widgets' ) ) :
 		 * Registered.
 		 *
 		 * @access protected
-		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $registered Regisered widgets.
 		 */
@@ -70,7 +68,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Widgets' ) ) :
 		 * Unregistered.
 		 *
 		 * @access protected
-		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $unregistered Unregistered widgets.
 		 */
@@ -79,7 +76,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Widgets' ) ) :
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 * @param array $config Config data.
 		 */
@@ -89,7 +85,7 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Widgets' ) ) :
 			$this->registered   = $config['registered'];
 			$this->unregistered = $config['unregistered'];
 
-			// Default properties via Circuit abstract class.
+			// Default properties.
 			$this->wired    = $config['wired'];
 			$this->prefix   = $config['prefix'];
 			$this->_actions = $config['actions'];
@@ -103,7 +99,7 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Widgets' ) ) :
 			 *
 			 * Config data files are located in: `wireframe_dev/wireframe/config/`
 			 */
-			if ( isset( $this->wired ) ) {
+			if ( isset( $this->wired ) && true === $this->wired ) {
 				$this->wire_actions( $this->_actions );
 				$this->wire_filters( $this->_filters );
 			}
@@ -112,7 +108,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Widgets' ) ) :
 		/**
 		 * Register Widgets.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function register() {
@@ -126,7 +121,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Widgets' ) ) :
 		/**
 		 * Unregister Widgets.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 * @todo  Should this be baked-in or disallowed?
 		 */

@@ -1,13 +1,13 @@
 <?php
 /**
- * Theme_Navigation is a Wireframe theme class packaged with Wireframe Theme.
+ * Theme_Navigation is a Wireframe theme class.
  *
  * PHP version 5.6.0
  *
- * @package   Wireframe
+ * @package   Wireframe_Theme
  * @author    MixaTheme, Tada Burke
  * @version   1.0.0 Wireframe_Theme
- * @copyright 2012-2016 MixaTheme
+ * @copyright 2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
@@ -27,7 +27,7 @@
  * @since 5.3.0 PHP
  * @since 1.0.0 Wireframe_Theme
  */
-namespace MixaTheme\WireframeTheme;
+namespace MixaTheme\Wireframe\Theme;
 
 /**
  * No direct access to this file.
@@ -41,11 +41,10 @@ defined( 'ABSPATH' ) or die();
  *
  * @since 1.0.0 Wireframe_Theme
  */
-if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Navigation' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Navigation' ) ) :
 	/**
 	 * Theme_Navigation is a theme class for wiring nav menus.
 	 *
-	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Theme
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
@@ -54,7 +53,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Navigation' ) ) :
 		 * Primary Menu.
 		 *
 		 * @access private
-		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $_primary_menu
 		 */
@@ -64,7 +62,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Navigation' ) ) :
 		 * Secondary Menu.
 		 *
 		 * @access private
-		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $_secondary_menu
 		 */
@@ -74,7 +71,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Navigation' ) ) :
 		 * Tertiary Menu.
 		 *
 		 * @access private
-		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $_tertiary_menu
 		 */
@@ -84,7 +80,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Navigation' ) ) :
 		 * Constructor runs when this class is instantiated.
 		 *
 		 * @access private
-		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
 		 * @param  array $config Config data.
 		 */
@@ -95,7 +90,7 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Navigation' ) ) :
 			$this->_secondary_menu = $config['secondary_menu'];
 			$this->_tertiary_menu  = $config['tertiary_menu'];
 
-			// Default properties via Circuit abstract class.
+			// Default properties.
 			$this->wired    = $config['wired'];
 			$this->prefix   = $config['prefix'];
 			$this->_actions = $config['actions'];
@@ -109,7 +104,7 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Navigation' ) ) :
 			 *
 			 * Config data files are located in: `wireframe_dev/wireframe/config/`
 			 */
-			if ( isset( $this->wired ) ) {
+			if ( isset( $this->wired ) && true === $this->wired ) {
 				$this->wire_actions( $this->_actions );
 				$this->wire_filters( $this->_filters );
 			}
@@ -118,7 +113,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Navigation' ) ) :
 		/**
 		 * Set Primary menu.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 * @see   wp_nav_menu()
 		 */
@@ -127,7 +121,7 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Navigation' ) ) :
 			// Check for prefix and config args.
 			if ( isset( $this->prefix ) && isset( $this->_primary_menu ) ) {
 
-				// Wireframe API: add_filter( 'wftheme_primary_menu' ).
+				// Wireframe API: add_filter( 'wireframe_theme_primary_menu' ).
 				$filterable = apply_filters(
 					$this->prefix . '_' . __FUNCTION__,
 					$this->_primary_menu
@@ -141,7 +135,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Navigation' ) ) :
 		/**
 		 * Set Secondary menu.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 * @see   wp_nav_menu()
 		 */
@@ -150,7 +143,7 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Navigation' ) ) :
 			// Check for prefix and config args.
 			if ( isset( $this->prefix ) && isset( $this->_secondary_menu ) ) {
 
-				// Wireframe API: add_filter( 'wftheme_secondary_menu' ).
+				// Wireframe API: add_filter( 'wireframe_theme_secondary_menu' ).
 				$filterable = apply_filters(
 					$this->prefix . '_' . __FUNCTION__,
 					$this->_secondary_menu
@@ -164,7 +157,6 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Navigation' ) ) :
 		/**
 		 * Set Tertiary menu.
 		 *
-		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Theme
 		 * @see   wp_nav_menu()
 		 */
@@ -173,7 +165,7 @@ if ( ! class_exists( 'MixaTheme\WireframeTheme\Theme_Navigation' ) ) :
 			// Check for prefix and config args.
 			if ( isset( $this->prefix ) && isset( $this->_tertiary_menu ) ) {
 
-				// Wireframe API: add_filter( 'wftheme_tertiary_menu' ).
+				// Wireframe API: add_filter( 'wireframe_theme_tertiary_menu' ).
 				$filterable = apply_filters(
 					$this->prefix . '_' . __FUNCTION__,
 					$this->_tertiary_menu
