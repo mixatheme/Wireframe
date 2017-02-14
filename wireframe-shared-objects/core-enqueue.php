@@ -126,10 +126,9 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Enqueue' ) ) :
 		}
 
 		/**
-		 * Core_Enqueue the custom CSS files passed via functions.php.
+		 * Core_Enqueue Styles.
 		 *
 		 * @since 1.0.0 Wireframe_Theme
-		 * @see   wireframe_theme_version() Optional WP_DEBUG helper.
 		 */
 		public function styles() {
 
@@ -147,14 +146,32 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Enqueue' ) ) :
 				// Set handle.
 				$handle = $this->prefix . '_' . $key;
 
+				// Set SRC.
+				$src = trailingslashit( $value['path'] ) . $value['file'] . '.css';
+
+				// Set dependencies.
+				if ( isset( $value['deps'] ) ) {
+					$deps = $value['deps'];
+				} else {
+					$deps = array();
+				}
+
+				// Set version.
+				if ( isset( $value['version'] ) ) {
+					$version = $value['version'];
+				} else {
+					$version = WIREFRAME_THEME_VERSION;
+				}
+
+				// Set media.
+				if ( isset( $value['media'] ) ) {
+					$media = $value['media'];
+				} else {
+					$media = 'screen';
+				}
+
 				// Register.
-				wp_register_style(
-					$handle,
-					trailingslashit( $value['path'] ) . $value['file'] . '.css',
-					$value['deps'],
-					WIREFRAME_THEME_VERSION,
-					$value['media']
-				);
+				wp_register_style( $handle, $src, $deps, $version, $media );
 
 				// Core_Enqueue.
 				wp_enqueue_style( $handle );
@@ -162,10 +179,9 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Enqueue' ) ) :
 		}
 
 		/**
-		 * Core_Enqueue any custom JS files passed in.
+		 * Core_Enqueue Scripts.
 		 *
 		 * @since 1.0.0 Wireframe_Theme
-		 * @see   wireframe_theme_version() Optional WP_DEBUG helper.
 		 * @see   https://codex.wordpress.org/Function_Reference/wp_localize_script
 		 */
 		public function scripts() {
@@ -191,19 +207,37 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Enqueue' ) ) :
 				 */
 				$handle = str_replace( '-', '_', $this->prefix . '_' . $key );
 
+				// Set src.
+				$src = trailingslashit( $value['path'] ) . $value['file'] . '.js';
+
+				// Set dependencies.
+				if ( isset( $value['deps'] ) ) {
+					$deps = $value['deps'];
+				} else {
+					$deps = array();
+				}
+
+				// Set version.
+				if ( isset( $value['version'] ) ) {
+					$version = $value['version'];
+				} else {
+					$version = WIREFRAME_THEME_VERSION;
+				}
+
+				// Set footer.
+				if ( isset( $value['footer'] ) ) {
+					$footer = $value['footer'];
+				} else {
+					$footer = true;
+				}
+
 				// Register.
-				wp_register_script(
-					$handle,
-					trailingslashit( $value['path'] ) . $value['file'] . '.js',
-					$value['deps'],
-					WIREFRAME_THEME_VERSION,
-					$value['footer']
-				);
+				wp_register_script( $handle, $src, $deps, $version, $footer );
 
 				// Core_Enqueue.
 				wp_enqueue_script( $handle );
 
-				// Localize.
+				// Localize only if set.
 				if ( isset( $value['localize'] ) ) {
 					$data = $value['localize'];
 					wp_localize_script( $handle, $handle, $data );
