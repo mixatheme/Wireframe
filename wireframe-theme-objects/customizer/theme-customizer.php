@@ -133,6 +133,15 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Customizer' ) ) :
 		private $_enqueue;
 
 		/**
+		 * Inline CSS.
+		 *
+		 * @access private
+		 * @since  1.0.0 Wireframe_Theme
+		 * @var    array $_inline
+		 */
+		private $_inline;
+
+		/**
 		 * Constructor runs when this class is instantiated.
 		 *
 		 * @since 1.0.0 Wireframe_Theme
@@ -146,6 +155,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Customizer' ) ) :
 			$this->_controls = $config['controls'];
 			$this->_panels   = $config['panels'];
 			$this->_sections = $config['sections'];
+			$this->_inline   = $config['inline'];
 
 			// Enqueue properties required for this class.
 			$this->_styles  = $config['styles'];
@@ -230,16 +240,63 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Customizer' ) ) :
 		 * @internal Thanks: WordPress Codex, Otto.
 		 */
 		public function header_output() {
-		?><!--Customizer CSS-->
+		?>
+			<!--Customizer CSS-->
 			<style type="text/css">
-				<?php $this->css( '#site-title a', 'color', 'header_textcolor', '#' ); ?>
-				<?php $this->css( 'body', 'background-color', 'background_color', '#' ); ?>
-				<?php $this->css( 'a', 'color', 'link_color' ); ?>
-				<?php $this->css( 'body', 'color', 'main_text_color' ); ?>
-				<?php $this->css( '#site-logo', 'margin-top', 'logo_top', '', 'px' ); ?>
-				<?php $this->css( '#site-logo', 'margin-left', 'logo_left', '', 'px' ); ?>
-				<?php $this->css( '#site-logo', 'margin-right', 'logo_right', '', 'px' ); ?>
-				<?php $this->css( '#site-logo', 'margin-bottom', 'logo_bottom', '', 'px' ); ?>
+				<?php
+				/**
+				 * Loop config array of inline styles.
+				 *
+				 * @since 1.0.0 Wireframe_Theme
+				 */
+				foreach ( $this->_inline as $key => $value ) :
+
+					// Assign even values as keys.
+					if ( 0 === $key % 2 ) {
+						$id = $value;
+						continue;
+					}
+
+					// Set style.
+					if ( isset( $value['style'] ) ) {
+						$style = $value['style'];
+					} else {
+						$style = '';
+					}
+
+					// Set mod_name.
+					if ( isset( $value['mod_name'] ) ) {
+						$mod_name = $value['mod_name'];
+					} else {
+						$mod_name = '';
+					}
+
+					// Set prefix.
+					if ( isset( $value['prefix'] ) ) {
+						$prefix = $value['prefix'];
+					} else {
+						$prefix = '';
+					}
+
+					// Set postfix.
+					if ( isset( $value['postfix'] ) ) {
+						$postfix = $value['postfix'];
+					} else {
+						$postfix = '';
+					}
+
+					// Set echo.
+					if ( isset( $value['echo'] ) ) {
+						$echo = $value['echo'];
+					} else {
+						$echo = true;
+					}
+
+					// Render the inline CSS.
+					$this->css( $id, $style, $mod_name, $prefix, $postfix, $echo );
+
+				endforeach;
+				?>
 			</style>
 			<!--/Customizer CSS-->
 		<?php
@@ -279,7 +336,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Customizer' ) ) :
 
 				// Echo the styles.
 				if ( $echo ) {
-					esc_html( $output );
+					echo esc_html( $output );
 				}
 			}
 
