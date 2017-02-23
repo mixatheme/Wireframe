@@ -52,56 +52,56 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Enqueue' ) ) :
 		/**
 		 * Prefix.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    string $prefix
+		 * @var    string $_prefix
 		 */
-		protected $prefix;
+		private $_prefix;
 
 		/**
 		 * Styles.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $styles
+		 * @var    array $_styles
 		 */
-		protected $styles = array();
+		private $_styles = array();
 
 		/**
 		 * Scripts.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $scripts
+		 * @var    array $_scripts
 		 */
-		protected $scripts = array();
+		private $_scripts = array();
 
 		/**
 		 * Media Modal.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    bool $mediamodal
+		 * @var    bool $_mediamodal
 		 */
-		protected $mediamodal = false;
+		private $_mediamodal = false;
 
 		/**
 		 * Style CSS.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    bool $stylecss
+		 * @var    bool $_stylecss
 		 */
-		protected $stylecss = false;
+		private $_stylecss = false;
 
 		/**
 		 * Comment Reply.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    bool $commentjs
+		 * @var    bool $_commentjs
 		 */
-		protected $commentjs = false;
+		private $_commentjs = false;
 
 		/**
 		 * Constructor runs when this class is instantiated.
@@ -116,13 +116,13 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Enqueue' ) ) :
 		 */
 		public function __construct( $prefix, $styles = null, $scripts = null, $mediamodal = null, $stylecss = null, $commentjs = null ) {
 
-			// Custom properties required for this class.
-			$this->prefix     = $prefix;
-			$this->styles     = $styles;
-			$this->scripts    = $scripts;
-			$this->mediamodal = $mediamodal;
-			$this->stylecss   = $stylecss;
-			$this->commentjs  = $commentjs;
+			// Declare custom properties required for this class.
+			$this->_prefix     = $prefix;
+			$this->_styles     = $styles;
+			$this->_scripts    = $scripts;
+			$this->_mediamodal = $mediamodal;
+			$this->_stylecss   = $stylecss;
+			$this->_commentjs  = $commentjs;
 		}
 
 		/**
@@ -133,18 +133,18 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Enqueue' ) ) :
 		public function styles() {
 
 			// No styles found.
-			if ( ! isset( $this->styles ) ) {
+			if ( ! isset( $this->_styles ) ) {
 				return;
 			}
 
 			// Allow styles to be filtered by child themes.
-			$filterable = apply_filters( $this->prefix . '_' . __FUNCTION__, $this->styles );
+			$filterable = apply_filters( $this->_prefix . '_' . __FUNCTION__, $this->_styles );
 
 			// Loop CSS files.
 			foreach ( $filterable as $key => $value ) {
 
 				// Set handle.
-				$handle = $this->prefix . '_' . $key;
+				$handle = $this->_prefix . '_' . $key;
 
 				// Set SRC.
 				$src = trailingslashit( $value['path'] ) . $value['file'] . '.css';
@@ -187,12 +187,12 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Enqueue' ) ) :
 		public function scripts() {
 
 			// No scripts found.
-			if ( ! isset( $this->scripts ) ) {
+			if ( ! isset( $this->_scripts ) ) {
 				return;
 			}
 
 			// Allow scripts to be filtered by child themes.
-			$filterable = apply_filters( $this->prefix . '_' . __FUNCTION__, $this->scripts );
+			$filterable = apply_filters( $this->_prefix . '_' . __FUNCTION__, $this->_scripts );
 
 			// Loop JS files.
 			foreach ( $filterable as $key => $value ) {
@@ -205,7 +205,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Enqueue' ) ) :
 				 *
 				 * @see theme.js
 				 */
-				$handle = str_replace( '-', '_', $this->prefix . '_' . $key );
+				$handle = str_replace( '-', '_', $this->_prefix . '_' . $key );
 
 				// Set src.
 				$src = trailingslashit( $value['path'] ) . $value['file'] . '.js';
@@ -252,7 +252,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Enqueue' ) ) :
 		 * @todo  Should this be enqueued contextually somehow?
 		 */
 		public function mediamodal() {
-			if ( isset( $this->mediamodal ) && true === $this->mediamodal ) {
+			if ( isset( $this->_mediamodal ) && true === $this->_mediamodal ) {
 				wp_enqueue_media();
 			}
 		}
@@ -263,12 +263,12 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Enqueue' ) ) :
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function stylecss() {
-			if ( isset( $this->prefix ) && true === $this->stylecss ) {
+			if ( isset( $this->_prefix ) && true === $this->_stylecss ) {
 				$filterable = apply_filters(
-					$this->prefix . '_' . __FUNCTION__,
+					$this->_prefix . '_' . __FUNCTION__,
 					get_stylesheet_uri()
 				);
-				wp_enqueue_style( $this->prefix . '_style', $filterable );
+				wp_enqueue_style( $this->_prefix . '_style', $filterable );
 			}
 		}
 
@@ -278,7 +278,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Enqueue' ) ) :
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function commentjs() {
-			if ( isset( $this->commentjs ) && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+			if ( isset( $this->_commentjs ) && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 				wp_enqueue_script( 'comment-reply' );
 			}
 		}

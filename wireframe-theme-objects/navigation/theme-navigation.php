@@ -77,7 +77,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Navigation' ) ) :
 		private $_tertiary_menu;
 
 		/**
-		 * Constructor runs when this class is instantiated.
+		 * Constructor runs when this class instantiates.
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
@@ -85,29 +85,13 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Navigation' ) ) :
 		 */
 		public function __construct( $config ) {
 
-			// Custom properties required for this class.
+			// Declare custom properties required for this class.
 			$this->_primary_menu   = $config['primary_menu'];
 			$this->_secondary_menu = $config['secondary_menu'];
 			$this->_tertiary_menu  = $config['tertiary_menu'];
 
-			// Default properties.
-			$this->wired    = $config['wired'];
-			$this->prefix   = $config['prefix'];
-			$this->_actions = $config['actions'];
-			$this->_filters = $config['filters'];
-
-			/**
-			 * Most objects are not required to be wired (hooked) when instantiated.
-			 * In your object config file(s), you can set the `$wired` value
-			 * to true or false. If false, you can decouple any hooks and declare
-			 * them elsewhere. If true, then objects fire hooks onload.
-			 *
-			 * Config data files are located in: `wireframe_dev/wireframe/config/`
-			 */
-			if ( isset( $this->wired ) && true === $this->wired ) {
-				$this->wire_actions( $this->_actions );
-				$this->wire_filters( $this->_filters );
-			}
+			// Get parent Constructor.
+			parent::__construct( $config );
 		}
 
 		/**
@@ -119,15 +103,11 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Navigation' ) ) :
 		public function primary_menu() {
 
 			// Check for prefix and config args.
-			if ( isset( $this->prefix ) && isset( $this->_primary_menu ) ) {
-
-				// Wireframe API: add_filter( 'wireframe_theme_primary_menu' ).
+			if ( isset( $this->_prefix ) && isset( $this->_primary_menu ) ) {
 				$filterable = apply_filters(
-					$this->prefix . '_' . __FUNCTION__,
+					$this->_prefix . '_' . __FUNCTION__,
 					$this->_primary_menu
 				);
-
-				// Build menu with config args.
 				wp_nav_menu( $filterable );
 			}
 		}
@@ -141,15 +121,11 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Navigation' ) ) :
 		public function secondary_menu() {
 
 			// Check for prefix and config args.
-			if ( isset( $this->prefix ) && isset( $this->_secondary_menu ) ) {
-
-				// Wireframe API: add_filter( 'wireframe_theme_secondary_menu' ).
+			if ( isset( $this->_prefix ) && isset( $this->_secondary_menu ) ) {
 				$filterable = apply_filters(
-					$this->prefix . '_' . __FUNCTION__,
+					$this->_prefix . '_' . __FUNCTION__,
 					$this->_secondary_menu
 				);
-
-				// Build menu with config args.
 				wp_nav_menu( $filterable );
 			}
 		}
@@ -163,15 +139,11 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Navigation' ) ) :
 		public function tertiary_menu() {
 
 			// Check for prefix and config args.
-			if ( isset( $this->prefix ) && isset( $this->_tertiary_menu ) ) {
-
-				// Wireframe API: add_filter( 'wireframe_theme_tertiary_menu' ).
+			if ( isset( $this->_prefix ) && isset( $this->_tertiary_menu ) ) {
 				$filterable = apply_filters(
-					$this->prefix . '_' . __FUNCTION__,
+					$this->_prefix . '_' . __FUNCTION__,
 					$this->_tertiary_menu
 				);
-
-				// Build menu with config args.
 				wp_nav_menu( $filterable );
 			}
 		}

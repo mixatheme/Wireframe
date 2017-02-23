@@ -57,9 +57,9 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Container' ) ) :
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $storage Array of objects.
+		 * @var    array $_storage Array of objects.
 		 */
-		private $storage = array();
+		private $_storage = array();
 
 		/**
 		 * Register service with the Storage array.
@@ -69,7 +69,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Container' ) ) :
 		 * @param callable $resolver Service instance value.
 		 */
 		public function __set( $service, $resolver ) {
-			$this->storage[ $service ] = $resolver;
+			$this->_storage[ $service ] = $resolver;
 		}
 
 		/**
@@ -80,7 +80,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Container' ) ) :
 		 * @return callable Closure as an object instance.
 		 */
 		public function __get( $service ) {
-			return $this->storage[ $service ]();
+			return $this->_storage[ $service ]();
 		}
 
 	} // Core_Container.

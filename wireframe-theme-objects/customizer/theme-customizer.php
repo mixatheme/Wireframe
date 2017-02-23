@@ -149,7 +149,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Customizer' ) ) :
 		 */
 		public function __construct( $config ) {
 
-			// Custom properties required for this class.
+			// Declare custom properties required for this class.
 			$this->_settings = $config['settings'];
 			$this->_partials = $config['partials'];
 			$this->_controls = $config['controls'];
@@ -162,24 +162,8 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Customizer' ) ) :
 			$this->_scripts = $config['scripts'];
 			$this->_enqueue = $config['enqueue'];
 
-			// Default properties.
-			$this->wired    = $config['wired'];
-			$this->prefix   = $config['prefix'];
-			$this->_actions = $config['actions'];
-			$this->_filters = $config['filters'];
-
-			/**
-			 * Most objects are not required to be wired (hooked) when instantiated.
-			 * In your object config file(s), you can set the `$wired` value
-			 * to true or false. If false, you can decouple any hooks and declare
-			 * them elsewhere. If true, then objects fire hooks onload.
-			 *
-			 * Config data files are located in: `wireframe_dev/wireframe/config/`
-			 */
-			if ( isset( $this->wired ) && true === $this->wired ) {
-				$this->wire_actions( $this->_actions );
-				$this->wire_filters( $this->_filters );
-			}
+			// Get parent Constructor.
+			parent::__construct( $config );
 		}
 
 		/**
@@ -240,6 +224,9 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Customizer' ) ) :
 		 * @internal Thanks: WordPress Codex, Otto.
 		 */
 		public function header_output() {
+
+			// Inline CSS.
+			if ( isset( $this->_inline ) ) :
 		?>
 			<!--Customizer CSS-->
 			<style type="text/css">
@@ -294,12 +281,12 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Customizer' ) ) :
 
 					// Render the inline CSS.
 					$this->css( $id, $style, $mod_name, $prefix, $postfix, $echo );
-
 				endforeach;
 				?>
 			</style>
 			<!--/Customizer CSS-->
-		<?php
+			<?php
+			endif;
 		}
 
 		/**

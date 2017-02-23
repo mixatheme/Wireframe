@@ -66,6 +66,15 @@ Wireframe objects consist of modular class files which help you rapidly develop 
 
 ##### Objects for Plugins
 
+* Core_Plugin
+* Plugin_Admin
+* Plugin_CPT
+* Plugin_DBTables
+* Plugin_Options
+* Plugin_Settings
+* Plugin_Shortcode
+* Plugin_Taxonomy
+
 * Coming Soon
 
 ---

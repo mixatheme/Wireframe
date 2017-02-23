@@ -50,40 +50,68 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Module_Abstract' ) ) :
 	 */
 	abstract class Core_Module_Abstract {
 		/**
-		 * Wired.
-		 *
-		 * @access protected
-		 * @since  1.0.0 Wireframe_Theme
-		 * @var    bool $wired
-		 */
-		protected $wired;
-
-		/**
 		 * Prefix.
 		 *
 		 * @access protected
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    string $prefix
+		 * @var    array $_prefix
 		 */
-		protected $prefix;
+		protected $_prefix = WIREFRAME_THEME_PREFIX;
+
+		/**
+		 * Wired.
+		 *
+		 * @access protected
+		 * @since  1.0.0 Wireframe_Theme
+		 * @var    array $_wired
+		 */
+		protected $_wired = false;
 
 		/**
 		 * Actions.
 		 *
-		 * @access private
+		 * @access protected
 		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $_actions
 		 */
-		private $_actions;
+		protected $_actions = array();
 
 		/**
 		 * Filters.
 		 *
-		 * @access private
+		 * @access protected
 		 * @since  1.0.0 Wireframe_Theme
 		 * @var    array $_filters
 		 */
-		private $_filters;
+		protected $_filters = array();
+
+		/**
+		 * Constructor runs when this class instantiates.
+		 *
+		 * @since 1.0.0 Wireframe_Theme
+		 * @param array $config Data via config file.
+		 */
+		public function __construct( $config ) {
+
+			// Declare default properties for this class and sub-classes.
+			$this->_prefix  = $config['prefix'];
+			$this->_wired   = $config['wired'];
+			$this->_actions = $config['actions'];
+			$this->_filters = $config['filters'];
+
+			/**
+			 * Most objects are not required to be wired (hooked) when instantiated.
+			 * In your object config file(s), you can set the `$wired` value
+			 * to true or false. If false, you can decouple any hooks and declare
+			 * them elsewhere. If true, then objects fire hooks onload.
+			 *
+			 * Config data files are located in: `wireframe_dev/wireframe/config/`
+			 */
+			if ( isset( $this->_wired ) && true === $this->_wired ) {
+				$this->wire_actions( $this->_actions );
+				$this->wire_filters( $this->_filters );
+			}
+		}
 
 		/**
 		 * Get property.

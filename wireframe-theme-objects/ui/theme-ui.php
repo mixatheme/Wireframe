@@ -50,34 +50,26 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_UI' ) ) :
 	 */
 	final class Theme_UI extends Core_Module_Abstract implements Theme_UI_Interface {
 		/**
-		 * Constructor runs when this class is instantiated.
+		 * Enqueue.
+		 *
+		 * @since 1.0.0 Wireframe_Theme
+		 * @var   object $_enqueue
+		 */
+		private $_enqueue;
+
+		/**
+		 * Constructor runs when this class instantiates.
 		 *
 		 * @since 1.0.0 Wireframe_Theme
 		 * @param array $config Config data.
 		 */
 		public function __construct( $config ) {
 
-			// Custom properties required for this class.
-			$this->enqueue = $config['enqueue'];
+			// Declare custom properties required for this class.
+			$this->_enqueue = $config['enqueue'];
 
-			// Default properties.
-			$this->wired    = $config['wired'];
-			$this->prefix   = $config['prefix'];
-			$this->_actions = $config['actions'];
-			$this->_filters = $config['filters'];
-
-			/**
-			 * Most objects are not required to be wired (hooked) when instantiated.
-			 * In your object config file(s), you can set the `$wired` value
-			 * to true or false. If false, you can decouple any hooks and declare
-			 * them elsewhere. If true, then objects fire hooks onload.
-			 *
-			 * Config data files are located in: `wireframe_dev/wireframe/config/`
-			 */
-			if ( isset( $this->wired ) && true === $this->wired ) {
-				$this->wire_actions( $this->_actions );
-				$this->wire_filters( $this->_filters );
-			}
+			// Get parent Constructor.
+			parent::__construct( $config );
 		}
 
 		/**
@@ -86,8 +78,8 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_UI' ) ) :
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function styles() {
-			if ( null !== $this->enqueue->styles() ) {
-				$this->enqueue->styles();
+			if ( null !== $this->_enqueue->styles() ) {
+				$this->_enqueue->styles();
 			}
 		}
 
@@ -97,8 +89,8 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_UI' ) ) :
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function scripts() {
-			if ( null !== $this->enqueue->scripts() ) {
-				$this->enqueue->scripts();
+			if ( null !== $this->_enqueue->scripts() ) {
+				$this->_enqueue->scripts();
 			}
 		}
 
@@ -108,8 +100,8 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_UI' ) ) :
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function mediamodal() {
-			if ( null !== $this->enqueue->mediamodal() ) {
-				$this->enqueue->mediamodal();
+			if ( null !== $this->_enqueue->mediamodal() ) {
+				$this->_enqueue->mediamodal();
 			}
 		}
 
@@ -119,8 +111,8 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_UI' ) ) :
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function stylecss() {
-			if ( null !== $this->enqueue->stylecss() ) {
-				$this->enqueue->stylecss();
+			if ( null !== $this->_enqueue->stylecss() ) {
+				$this->_enqueue->stylecss();
 			}
 		}
 
@@ -130,11 +122,11 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_UI' ) ) :
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function commentjs() {
-			if ( null !== $this->enqueue->commentjs() ) {
-				$this->enqueue->commentjs();
+			if ( null !== $this->_enqueue->commentjs() ) {
+				$this->_enqueue->commentjs();
 			}
 		}
 
-	} // UI.
+	} // Theme_UI.
 
 endif; // Thanks for using MixaTheme products!

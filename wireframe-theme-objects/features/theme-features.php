@@ -56,152 +56,135 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Features' ) ) :
 		/**
 		 * Custom Header.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $custom_header
+		 * @var    array $_custom_header
 		 */
-		protected $custom_header;
+		private $_custom_header;
 
 		/**
 		 * Content Width.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $content_width
+		 * @var    array $_content_width
 		 */
-		protected $content_width;
+		private $_content_width;
 
 		/**
 		 * Post Thumbnails.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $post_thumbnails
+		 * @var    array $_post_thumbnails
 		 */
-		protected $post_thumbnails;
+		private $_post_thumbnails;
 
 		/**
 		 * Post Thumbnails Size.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $post_thumbnails_size
+		 * @var    array $_post_thumbnails_size
 		 */
-		protected $post_thumbnails_size;
+		private $_post_thumbnails_size;
 
 		/**
 		 * Feed Links.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $feed_links
+		 * @var    array $_feed_links
 		 */
-		protected $feed_links;
+		private $_feed_links;
 
 		/**
 		 * Nav Menus.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $nav_menus
+		 * @var    array $_nav_menus
 		 */
-		protected $nav_menus;
+		private $_nav_menus;
 
 		/**
 		 * Post Formats.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $post_formats
+		 * @var    array $_post_formats
 		 */
-		protected $post_formats;
+		private $_post_formats;
 
 		/**
 		 * Custom Background.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $custom_background
+		 * @var    array $_custom_background
 		 */
-		protected $custom_background;
+		private $_custom_background;
 
 		/**
 		 * HTML5.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $html5
+		 * @var    array $_html5
 		 */
-		protected $html5;
+		private $_html5;
 
 		/**
 		 * Title Tag.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $title_tag
+		 * @var    array $_title_tag
 		 */
-		protected $title_tag;
+		private $_title_tag;
 
 		/**
 		 * Custom Logo.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $custom_logo
+		 * @var    array $_custom_logo
 		 */
-		protected $custom_logo;
+		private $_custom_logo;
 
 		/**
 		 * Selective Refresh.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $selective_refresh
+		 * @var    array $_selective_refresh
 		 */
-		protected $selective_refresh;
+		private $_selective_refresh;
 
 		/**
-		 * Constructor runs when this class is instantiated.
+		 * Constructor runs when this class instantiates.
 		 *
 		 * @since 1.0.0 Wireframe_Theme
 		 * @param array $config Data via config file.
 		 */
 		public function __construct( $config ) {
 
-			// Custom properties required for this class.
-			$this->custom_header        = $config['custom_header'];
-			$this->content_width        = $config['content_width'];
-			$this->post_thumbnails      = $config['post_thumbnails'];
-			$this->post_thumbnails_size = $config['post_thumbnails_size'];
-			$this->feed_links           = $config['feed_links'];
-			$this->nav_menus            = $config['nav_menus'];
-			$this->post_formats         = $config['post_formats'];
-			$this->custom_background    = $config['custom_background'];
-			$this->html5                = $config['html5'];
-			$this->title_tag            = $config['title_tag'];
-			$this->custom_logo          = $config['custom_logo'];
-			$this->selective_refresh    = $config['selective_refresh'];
+			// Declare custom properties required for this class.
+			$this->_custom_header        = $config['custom_header'];
+			$this->_content_width        = $config['content_width'];
+			$this->_post_thumbnails      = $config['post_thumbnails'];
+			$this->_post_thumbnails_size = $config['post_thumbnails_size'];
+			$this->_feed_links           = $config['feed_links'];
+			$this->_nav_menus            = $config['nav_menus'];
+			$this->_post_formats         = $config['post_formats'];
+			$this->_custom_background    = $config['custom_background'];
+			$this->_html5                = $config['html5'];
+			$this->_title_tag            = $config['title_tag'];
+			$this->_custom_logo          = $config['custom_logo'];
+			$this->_selective_refresh    = $config['selective_refresh'];
 
-			// Default properties.
-			$this->wired    = $config['wired'];
-			$this->prefix   = $config['prefix'];
-			$this->_actions = $config['actions'];
-			$this->_filters = $config['filters'];
-
-			/**
-			 * Most objects are not required to be wired (hooked) when instantiated.
-			 * In your object config file(s), you can set the `$wired` value
-			 * to true or false. If false, you can decouple any hooks and declare
-			 * them elsewhere. If true, then objects fire hooks onload.
-			 *
-			 * Config data files are located in: `wireframe_dev/wireframe/config/`
-			 */
-			if ( isset( $this->wired ) && true === $this->wired ) {
-				$this->wire_actions( $this->_actions );
-				$this->wire_filters( $this->_filters );
-			}
+			// Get parent Constructor.
+			parent::__construct( $config );
 		}
 
 		/**
@@ -214,10 +197,10 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Features' ) ) :
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function custom_header() {
-			if ( isset( $this->custom_header ) && isset( $this->prefix ) ) {
+			if ( isset( $this->_custom_header ) && isset( $this->_prefix ) ) {
 				$filterable = apply_filters(
-					$this->prefix . '_' . __FUNCTION__,
-					$this->custom_header
+					$this->_prefix . '_' . __FUNCTION__,
+					$this->_custom_header
 				);
 				add_theme_support( 'custom-header', $filterable );
 			}
@@ -230,7 +213,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Features' ) ) :
 		 * oEmbeds and images added to posts. The hook priority is 0 to make it
 		 * available to lower priority callbacks.
 		 *
-		 * @global $content_width
+		 * @global $_content_width
 		 * @since  2.6.0 WordPress @see $GLOBALS['content_width']
 		 * @since  1.0.0 Wireframe_Theme
 		 * @see    https://codex.wordpress.org/Content_Width
@@ -241,10 +224,10 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Features' ) ) :
 		 * @internal Alternatively, we can store the content_width in a theme mod (recommended).
 		 */
 		public function content_width() {
-			if ( isset( $this->content_width ) && isset( $this->prefix ) ) {
+			if ( isset( $this->_content_width ) && isset( $this->_prefix ) ) {
 				$filterable = apply_filters(
-					$this->prefix . '_' . __FUNCTION__,
-					$this->content_width
+					$this->_prefix . '_' . __FUNCTION__,
+					$this->_content_width
 				);
 				$GLOBALS['content_width'] = absint( $filterable );
 			}
@@ -269,10 +252,10 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Features' ) ) :
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function post_thumbnails() {
-			if ( isset( $this->post_thumbnails ) ) {
+			if ( isset( $this->_post_thumbnails ) ) {
 				$filterable = apply_filters(
-					$this->prefix . '_' . __FUNCTION__,
-					$this->post_thumbnails
+					$this->_prefix . '_' . __FUNCTION__,
+					$this->_post_thumbnails
 				);
 				add_theme_support( 'post-thumbnails', $filterable );
 			}
@@ -286,10 +269,10 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Features' ) ) :
 		 * @see   set_post_thumbnail_size()
 		 */
 		public function post_thumbnails_size() {
-			if ( isset( $this->post_thumbnails_size ) && isset( $this->prefix ) ) {
+			if ( isset( $this->_post_thumbnails_size ) && isset( $this->_prefix ) ) {
 				$filterable = apply_filters(
-					$this->prefix . '_' . __FUNCTION__,
-					$this->post_thumbnails_size
+					$this->_prefix . '_' . __FUNCTION__,
+					$this->_post_thumbnails_size
 				);
 				set_post_thumbnail_size( $filterable['width'], $filterable['height'], $filterable['crop'] );
 			}
@@ -306,10 +289,10 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Features' ) ) :
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function feed_links() {
-			if ( isset( $this->feed_links ) && isset( $this->prefix ) ) {
+			if ( isset( $this->_feed_links ) && isset( $this->_prefix ) ) {
 				$filterable = apply_filters(
-					$this->prefix . '_' . __FUNCTION__,
-					$this->feed_links
+					$this->_prefix . '_' . __FUNCTION__,
+					$this->_feed_links
 				);
 				add_theme_support( 'automatic-feed-links', $filterable );
 			}
@@ -325,10 +308,10 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Features' ) ) :
 		 * @see   register_nav_menus()
 		 */
 		public function nav_menus() {
-			if ( isset( $this->nav_menus ) && isset( $this->prefix ) ) {
+			if ( isset( $this->_nav_menus ) && isset( $this->_prefix ) ) {
 				$filterable = apply_filters(
-					$this->prefix . '_' . __FUNCTION__,
-					$this->nav_menus
+					$this->_prefix . '_' . __FUNCTION__,
+					$this->_nav_menus
 				);
 				register_nav_menus( (array) $filterable );
 			}
@@ -349,10 +332,10 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Features' ) ) :
 		 * @internal It's not possible to create custom Post Formats.
 		 */
 		public function post_formats() {
-			if ( isset( $this->post_formats ) && isset( $this->prefix ) ) {
+			if ( isset( $this->_post_formats ) && isset( $this->_prefix ) ) {
 				$filterable = apply_filters(
-					$this->prefix . '_' . __FUNCTION__,
-					$this->post_formats
+					$this->_prefix . '_' . __FUNCTION__,
+					$this->_post_formats
 				);
 				add_theme_support( 'post-formats', $filterable );
 			}
@@ -368,10 +351,10 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Features' ) ) :
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function custom_background() {
-			if ( isset( $this->custom_background ) && isset( $this->prefix ) ) {
+			if ( isset( $this->_custom_background ) && isset( $this->_prefix ) ) {
 				$filterable = apply_filters(
-					$this->prefix . '_' . __FUNCTION__,
-					$this->custom_background
+					$this->_prefix . '_' . __FUNCTION__,
+					$this->_custom_background
 				);
 				add_theme_support( 'custom-background', $filterable );
 			}
@@ -387,10 +370,10 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Features' ) ) :
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function html5() {
-			if ( isset( $this->html5 ) && isset( $this->prefix ) ) {
+			if ( isset( $this->_html5 ) && isset( $this->_prefix ) ) {
 				$filterable = apply_filters(
-					$this->prefix . '_' . __FUNCTION__,
-					$this->html5
+					$this->_prefix . '_' . __FUNCTION__,
+					$this->_html5
 				);
 				add_theme_support( 'html5', $filterable );
 			}
@@ -407,10 +390,10 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Features' ) ) :
 		 * @see   https://codex.wordpress.org/Title_Tag
 		 */
 		public function title_tag() {
-			if ( isset( $this->title_tag ) && isset( $this->prefix ) ) {
+			if ( isset( $this->_title_tag ) && isset( $this->_prefix ) ) {
 				$filterable = apply_filters(
-					$this->prefix . '_' . __FUNCTION__,
-					$this->title_tag
+					$this->_prefix . '_' . __FUNCTION__,
+					$this->_title_tag
 				);
 				add_theme_support( 'title-tag', $filterable );
 			}
@@ -425,10 +408,10 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Features' ) ) :
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function custom_logo() {
-			if ( isset( $this->custom_logo ) && isset( $this->prefix ) ) {
+			if ( isset( $this->_custom_logo ) && isset( $this->_prefix ) ) {
 				$filterable = apply_filters(
-					$this->prefix . '_' . __FUNCTION__,
-					$this->custom_logo
+					$this->_prefix . '_' . __FUNCTION__,
+					$this->_custom_logo
 				);
 				add_theme_support( 'custom-logo', $filterable );
 			}
@@ -443,10 +426,10 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Features' ) ) :
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function selective_refresh() {
-			if ( isset( $this->selective_refresh ) && isset( $this->prefix ) ) {
+			if ( isset( $this->_selective_refresh ) && isset( $this->_prefix ) ) {
 				$filterable = apply_filters(
-					$this->prefix . '_' . __FUNCTION__,
-					$this->selective_refresh
+					$this->_prefix . '_' . __FUNCTION__,
+					$this->_selective_refresh
 				);
 				add_theme_support( 'customize-selective-refresh-widgets', $filterable );
 			}

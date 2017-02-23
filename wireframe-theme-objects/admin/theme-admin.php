@@ -52,11 +52,11 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Admin' ) ) :
 		/**
 		 * Theme Page.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $theme_page
+		 * @var    array $_theme_page
 		 */
-		protected $theme_page;
+		private $_theme_page;
 
 		/**
 		 * Constructor runs when this class is instantiated.
@@ -66,27 +66,11 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Admin' ) ) :
 		 */
 		public function __construct( $config ) {
 
-			// Custom properties required for this class.
-			$this->theme_page = $config['theme_page'];
+			// Declare custom properties required for this class.
+			$this->_theme_page = $config['theme_page'];
 
-			// Default properties.
-			$this->wired    = $config['wired'];
-			$this->prefix   = $config['prefix'];
-			$this->_actions = $config['actions'];
-			$this->_filters = $config['filters'];
-
-			/**
-			 * Most objects are not required to be wired (hooked) when instantiated.
-			 * In your object config file(s), you can set the `$wired` value
-			 * to true or false. If false, you can decouple any hooks and declare
-			 * them elsewhere. If true, then objects fire hooks onload.
-			 *
-			 * Config data files are located in: `wireframe_dev/wireframe/config/`
-			 */
-			if ( isset( $this->wired ) && true === $this->wired ) {
-				$this->wire_actions( $this->_actions );
-				$this->wire_filters( $this->_filters );
-			}
+			// Get parent Constructor.
+			parent::__construct( $config );
 		}
 
 		/**
@@ -95,8 +79,8 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Admin' ) ) :
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function theme_page() {
-			if ( isset( $this->theme_page ) ) {
-				foreach ( $this->theme_page as $key => $value ) {
+			if ( isset( $this->_theme_page ) ) {
+				foreach ( $this->_theme_page as $key => $value ) {
 					add_theme_page(
 						$value['page_title'],
 						$value['menu_title'],

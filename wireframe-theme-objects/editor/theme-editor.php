@@ -76,28 +76,12 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Editor' ) ) :
 		 */
 		public function __construct( $config ) {
 
-			// Custom properties required for this class.
+			// Declare custom properties required for this class.
 			$this->_editor_style  = $config['editor_style'];
 			$this->_style_formats = $config['style_formats'];
 
-			// Default properties.
-			$this->wired    = $config['wired'];
-			$this->prefix   = $config['prefix'];
-			$this->_actions = $config['actions'];
-			$this->_filters = $config['filters'];
-
-			/**
-			 * Most objects are not required to be wired (hooked) when instantiated.
-			 * In your object config file(s), you can set the `$wired` value
-			 * to true or false. If false, you can decouple any hooks and declare
-			 * them elsewhere. If true, then objects fire hooks onload.
-			 *
-			 * Config data files are located in: `wireframe_dev/wireframe/config/`
-			 */
-			if ( isset( $this->wired ) && true === $this->wired ) {
-				$this->wire_actions( $this->_actions );
-				$this->wire_filters( $this->_filters );
-			}
+			// Get parent Constructor.
+			parent::__construct( $config );
 		}
 
 		/**
@@ -107,8 +91,11 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Editor' ) ) :
 		 */
 		public function editor_style() {
 			if ( isset( $this->_editor_style ) ) {
-				$filter = apply_filters( WIREFRAME_THEME_TEXTDOMAIN . '_' . __FUNCTION__, $this->_editor_style );
-				add_editor_style( $filter );
+				$filterable = apply_filters(
+					$this->_prefix . '_' . __FUNCTION__,
+					$this->_editor_style
+				);
+				add_editor_style( $filterable );
 			}
 		}
 
@@ -141,8 +128,11 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Editor' ) ) :
 		 */
 		public function style_formats( $json ) {
 			if ( isset( $this->_style_formats ) && isset( $json ) ) {
-				$filter = apply_filters( WIREFRAME_THEME_TEXTDOMAIN . '_editor_style_formats', $this->_style_formats );
-				$json['style_formats'] = wp_json_encode( $filter );
+				$filterable = apply_filters(
+					$this->_prefix . '_editor_style_formats',
+					$this->_style_formats
+				);
+				$json['style_formats'] = wp_json_encode( $filterable );
 				return $json;
 			}
 		}

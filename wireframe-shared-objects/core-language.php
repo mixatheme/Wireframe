@@ -54,11 +54,11 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Language' ) ) :
 		/**
 		 * Path.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $path
+		 * @var    array $_path
 		 */
-		protected $path;
+		private $_path;
 
 		/**
 		 * Constructor runs when this class is instantiated.
@@ -68,27 +68,11 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Language' ) ) :
 		 */
 		public function __construct( $config ) {
 
-			// Custom properties required for this class.
-			$this->path = $config['path'];
+			// Declare custom properties required for this class.
+			$this->_path = $config['path'];
 
-			// Default properties.
-			$this->wired    = $config['wired'];
-			$this->prefix   = $config['prefix'];
-			$this->_actions = $config['actions'];
-			$this->_filters = $config['filters'];
-
-			/**
-			 * Most objects are not required to be wired (hooked) when instantiated.
-			 * In your object config file(s), you can set the `$wired` value
-			 * to true or false. If false, you can decouple any hooks and declare
-			 * them elsewhere. If true, then objects fire hooks onload.
-			 *
-			 * Config data files are located in: `wireframe_dev/wireframe/config/`
-			 */
-			if ( isset( $this->wired ) && true === $this->wired ) {
-				$this->wire_actions( $this->_actions );
-				$this->wire_filters( $this->_filters );
-			}
+			// Get parent Constructor.
+			parent::__construct( $config );
 		}
 
 		/**
@@ -98,12 +82,12 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Core_Language' ) ) :
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function textdomain() {
-			if ( isset( $this->prefix ) && isset( $this->path ) ) {
+			if ( isset( $this->_prefix ) && isset( $this->_path ) ) {
 				$filterable = apply_filters(
-					$this->prefix . '_' . __FUNCTION__,
-					$this->path
+					$this->_prefix . '_' . __FUNCTION__,
+					$this->_path
 				);
-				load_theme_textdomain( $this->prefix, $filterable );
+				load_theme_textdomain( $this->_prefix, $filterable );
 			}
 		}
 

@@ -54,65 +54,46 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Notices' ) ) :
 		/**
 		 * Notices.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $notices
+		 * @var    array $_notices
 		 */
-		protected $notices;
+		private $_notices;
 
 		/**
-		 * Constructor runs when this class is instantiated.
+		 * Constructor runs when this class instantiates.
 		 *
-		 * @since 1.0.0 Wireframe_Theme
 		 * @since 1.0.0 Wireframe_Theme
 		 * @param array $config Config data.
 		 */
 		public function __construct( $config ) {
 
-			// Custom properties required for this class.
-			$this->notices = $config['notices'];
+			// Declare custom properties required for this class.
+			$this->_notices = $config['notices'];
 
-			// Default properties.
-			$this->wired    = $config['wired'];
-			$this->prefix   = $config['prefix'];
-			$this->_actions = $config['actions'];
-			$this->_filters = $config['filters'];
-
-			/**
-			 * Most objects are not required to be wired (hooked) when instantiated.
-			 * In your object config file(s), you can set the `$wired` value
-			 * to true or false. If false, you can decouple any hooks and declare
-			 * them elsewhere. If true, then objects fire hooks onload.
-			 *
-			 * Config data files are located in: `wireframe_dev/wireframe/config/`
-			 */
-			if ( isset( $this->wired ) && true === $this->wired ) {
-				$this->wire_actions( $this->_actions );
-				$this->wire_filters( $this->_filters );
-			}
+			// Get parent Constructor.
+			parent::__construct( $config );
 		}
 
 		/**
 		 * Parent Theme.
 		 *
-		 * This notice is triggered when the Wireframe parent theme is activated.
+		 * This notice is triggered when the Wireframe_Theme parent theme is activated.
 		 * You can greet customers, instruct customizers to use child themes,
 		 * recommended plugins to install, etc.
 		 *
-		 * @since 1.0.0 Wireframe_Theme
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function parent_theme() {
 
 			// Default empty notice.
-			$notice  = '';
+			$notice = '';
 
-			// Check if not a child theme and if config has notices.
-			if ( false === is_child_theme() && isset( $this->notices ) ) {
+			// Check if not a child theme and if config has _notices.
+			if ( false === is_child_theme() && isset( $this->_notices ) ) {
 
 				// Get notice from the array of notices.
-				$value = $this->notices['parent_theme'];
+				$value = $this->_notices['parent_theme'];
 
 				// Build notice.
 				$notice .= '<div class="' . $value['selectors'] . '"><p>';

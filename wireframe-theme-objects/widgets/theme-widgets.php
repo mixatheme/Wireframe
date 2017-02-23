@@ -58,20 +58,20 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Widgets' ) ) :
 		/**
 		 * Registered.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $registered Regisered widgets.
+		 * @var    array $_registered Regisered widgets.
 		 */
-		protected $registered;
+		private $_registered;
 
 		/**
 		 * Unregistered.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe_Theme
-		 * @var    array $unregistered Unregistered widgets.
+		 * @var    array $_unregistered Unregistered widgets.
 		 */
-		protected $unregistered;
+		private $_unregistered;
 
 		/**
 		 * Constructor runs when this class is instantiated.
@@ -81,28 +81,12 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Widgets' ) ) :
 		 */
 		public function __construct( $config ) {
 
-			// Custom properties required for this class.
-			$this->registered   = $config['registered'];
-			$this->unregistered = $config['unregistered'];
+			// Declare custom properties required for this class.
+			$this->_registered   = $config['registered'];
+			$this->_unregistered = $config['unregistered'];
 
-			// Default properties.
-			$this->wired    = $config['wired'];
-			$this->prefix   = $config['prefix'];
-			$this->_actions = $config['actions'];
-			$this->_filters = $config['filters'];
-
-			/**
-			 * Most objects are not required to be wired (hooked) when instantiated.
-			 * In your object config file(s), you can set the `$wired` value
-			 * to true or false. If false, you can decouple any hooks and declare
-			 * them elsewhere. If true, then objects fire hooks onload.
-			 *
-			 * Config data files are located in: `wireframe_dev/wireframe/config/`
-			 */
-			if ( isset( $this->wired ) && true === $this->wired ) {
-				$this->wire_actions( $this->_actions );
-				$this->wire_filters( $this->_filters );
-			}
+			// Get parent Constructor.
+			parent::__construct( $config );
 		}
 
 		/**
@@ -111,8 +95,8 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Widgets' ) ) :
 		 * @since 1.0.0 Wireframe_Theme
 		 */
 		public function register() {
-			if ( isset( $this->registered ) ) {
-				foreach ( $this->registered as $key => $widget ) {
+			if ( isset( $this->_registered ) ) {
+				foreach ( $this->_registered as $key => $widget ) {
 					register_sidebar( $widget );
 				}
 			}
@@ -125,8 +109,8 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Theme\Theme_Widgets' ) ) :
 		 * @todo  Should this be baked-in or disallowed?
 		 */
 		public function unregister() {
-			if ( isset( $this->unregistered ) ) {
-				foreach ( $this->unregistered as $key => $widget ) {
+			if ( isset( $this->_unregistered ) ) {
+				foreach ( $this->_unregistered as $key => $widget ) {
 					unregister_sidebar( $widget );
 				}
 			}
