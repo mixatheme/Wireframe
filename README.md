@@ -49,7 +49,7 @@ Wireframe objects consist of modular class files which help you rapidly develop 
 ### What's Inside?
 
 ##### Shared Objects
-These objects can be use interchangably between themes and plugins.
+These objects can be used interchangably between themes and plugins.
 
 * Core_Container - Class to hold your reusable objects in a nice array.
 * Core_Enqueue - Class to register and enqueues your styles & scripts.
