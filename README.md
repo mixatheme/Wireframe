@@ -11,7 +11,7 @@
 
 ## Components
 
-Wireframe suite consists of 3 major components: *Themes*, *Plugins* and *Objects*. These components are crafted to work seamlessly together and helps your productivity so you build better products.
+Wireframe suite consists of 3 major components: *Themes*, *Plugins* and *Modules*. These components are crafted to work seamlessly together and helps your productivity so you build better products.
 
 Need help getting started? Head on over to the Quickstart guide.
 
@@ -33,7 +33,7 @@ Welcome Theme Developers! There's one thing that all WordPress sites have in com
 
 ### Plugins
 
-Ah, so you wanna develop WordPress plugins? Awesome! We love Plugin Developers because with your creativity, the sky's the limit--and plugins always add more value to any WordPress site. Wireframe provides you with an OOP boilerplate plugin to help speed up development and lower your production costs.
+Ah, so you wanna develop WordPress plugins? Awesome! We love Plugin Developers because with your creativity, the sky's the limit--and plugins always add more value to any WordPress site. Wireframe provides you with an OOP plugin boilerplate to help speed up development and lower your production costs.
 
 * [Wireframe Plugin](https://github.com/mixatheme/wp-wireframe-plugin) - An OOP boilerplate plugin for building quality products.
 
@@ -42,43 +42,37 @@ Ah, so you wanna develop WordPress plugins? Awesome! We love Plugin Developers b
 
 --
 
-### Objects
+### Modules
 
-Wireframe objects consist of modular class files which help you rapidly develop your WordPress products while also adhering to OOP best practices, WordPress Coding Standards and GPL licensing. Wireframe makes it easy to keep your code DRY and helps de-couple dependencies. Many of Wireframe's objects can also be shared between themes and plugins. Simply pick an object you wish to use and drop it into your Wireframe theme or plugin!
+Wireframe objects consist of modular class files which help you rapidly develop your WordPress products while also adhering to OOP best practices, WordPress Coding Standards and GPL licensing. Wireframe makes it easy to keep your code DRY and helps de-couple dependencies. Many of Wireframe's objects can also be shared between themes and plugins!
 
-### What's Inside?
+### What's Inside Wireframe?
 
-##### Shared Objects
-These objects can be used interchangably between themes and plugins.
+##### Core Objects
 
 * Core_Container - Class to hold your reusable objects in a nice array.
-* Core_Enqueue - Class to register and enqueues your styles & scripts.
-* Core_Language - Class to load your translation files.
-* Core_Module - Class to easily extend your products.
+* Core_Enqueue - Class to register and enqueue your styles & scripts.
+* Core_Language - Class to load your translation file.
+* Core_Module_Abstract - Class to easily adding & extending your own modules.
+* Core_Plugin - Base class for building your OOP plugins.
+* Core_Theme - Base class for building your OOP themes.
 
-##### Objects for Themes
-These objects are theme-specific.
+##### Modules for Themes & Plugins
 
-* Core_Theme - Base class for building your OOP theme.
-* Theme_Admin - Class for adding Admin screens to your theme, etc.
-* Theme_Customizer - Class for integrating the Customizer into your OOP themes.
-* Theme_Editor - Class for extending your theme's TinyMCE WYSIWYG Editor.
-* Theme_Features - Class for loading all your theme features.
-* Theme_Mainmenu - Class for extending your theme's Walker Nav Menus.
-* Theme_Notices - Class for your theme's screen notices.
-* Theme_UI - Class for loading User Interface elements to your theme.
-
-##### Objects for Plugins
-These objects are plugin-specific.
-
-* Core_Plugin - Base class for building your OOP plugin.
-* Plugin_Admin - Class for adding Admin screens to your plugin, etc.
-* Plugin_CPT - Class for adding Custom Post Types for your OOP plugin.
-* Plugin_DBTables - Class for adding Database Tables for your OOP plugin.
-* Plugin_Options - Class for adding Options for your OOP plugin.
-* Plugin_Settings - Class for adding Settings for your OOP plugin.
-* Plugin_Shortcode - Class for adding Shortcodes for your OOP plugin.
-* Plugin_Taxonomy - Class for adding Taxonomies for your OOP plugin.
+* Module_Admin - Class for adding Admin screens & menus.
+* Module_CPT - Class for adding custom post types.
+* Module_Customizer - Class for integrating the Customizer.
+* Module_DBTables - Class for handling database tables.
+* Module_Editor - Class for extending the TinyMCE editor.
+* Module_Features - Class for loading theme features.
+* Module_Navigation - Class for extending walker nav menu.
+* Module_Notices - Class for hooking notices.
+* Module_Options - Class for adding options.
+* Module_Settings - Class for adding settings.
+* Module_Shortcode - Class for registering shortcodes.
+* Module_Taxonomy - Class for registering taxonomies.
+* Module_UI - Class for styles & scripts.
+* Module_Widgets - Class for registering widgets.
 
 More coming soon!
 
