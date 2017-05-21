@@ -72,6 +72,7 @@ Wireframe objects consist of modular class files which help you rapidly develop 
 * Module_Shortcode - Class for registering shortcodes.
 * Module_Taxonomy - Class for registering taxonomies.
 * Module_UI - Class for styles & scripts.
+* Module_Walker_BS3 - Class for Bootstrap 3 walker.
 * Module_Widgets - Class for registering widgets.
 
 More coming soon!
