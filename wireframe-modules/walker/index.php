@@ -1,0 +1,1 @@
+<?php // Thanks for using MixaTheme products! #mixatheme @mixatheme #wpwireframe @tadaburke
