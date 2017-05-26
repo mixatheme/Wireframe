@@ -2,7 +2,7 @@
 
 # Wireframe Suite
 
-[Wireframe](https://github.com/mixatheme/Wireframe) is a suite of object-oriented components for creating modular WordPress themes & plugins. Creators extend Wireframe to deliver professional client projects or for selling premium marketplace products to the world.
+Wireframe is a suite of free object-oriented components for creating modular WordPress themes & plugins. You extend Wireframe to deliver professional client projects or for selling premium marketplace products to the world.
 
 [Components](https://github.com/mixatheme/Wireframe#components) | 
 [Themes](https://github.com/mixatheme/Wireframe#themes) | [Plugins](https://github.com/mixatheme/Wireframe#plugins) | [Objects](https://github.com/mixatheme/Wireframe#objects)
